@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" xmlns:color="http://www.omg.org/spec/BPMN/non-normative/color/1.0" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_0wpi3f1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.22.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.21.0">
-  <bpmn:process id="Process_13gc9bk" name="CreditCardPayment_v1" isExecutable="true" camunda:historyTimeToLive="150">
+  <bpmn:process id="CreditCardPayment_v1" name="CreditCardPayment_v1" isExecutable="true" camunda:historyTimeToLive="150">
     <bpmn:startEvent id="StartEvent_1" name="信用卡請款">
       <bpmn:outgoing>Flow_19immdx</bpmn:outgoing>
     </bpmn:startEvent>
@@ -13,17 +13,12 @@
     <bpmn:task id="Activity_10ohc97" name="執行請款支付">
       <bpmn:incoming>Flow_1v8qutp</bpmn:incoming>
       <bpmn:incoming>Flow_0mgyj52</bpmn:incoming>
-      <bpmn:outgoing>Flow_0gdp4ph</bpmn:outgoing>
+      <bpmn:outgoing>Flow_0ohmnuo</bpmn:outgoing>
     </bpmn:task>
     <bpmn:sequenceFlow id="Flow_0datj08" name="&#62;= $10,000" sourceRef="Gateway_0kcn1kd" targetRef="Activity_1rtrjb3">
       <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${amount&gt;=10000}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
-    <bpmn:serviceTask id="Activity_1rtrjb3" name="系統通知&#10;客服人員" camunda:expression="${isNeedNotification}">
-      <bpmn:extensionElements />
-      <bpmn:incoming>Flow_0datj08</bpmn:incoming>
-      <bpmn:outgoing>Flow_190qu97</bpmn:outgoing>
-    </bpmn:serviceTask>
-    <bpmn:userTask id="Activity_0ihm0z7" name="審核請款資訊">
+    <bpmn:userTask id="Activity_0ihm0z7" name="審核請款資訊" camunda:assignee="demo">
       <bpmn:extensionElements>
         <camunda:formData />
       </bpmn:extensionElements>
@@ -31,12 +26,8 @@
       <bpmn:outgoing>Flow_0krptok</bpmn:outgoing>
     </bpmn:userTask>
     <bpmn:sequenceFlow id="Flow_190qu97" sourceRef="Activity_1rtrjb3" targetRef="Activity_0ihm0z7" />
-    <bpmn:task id="Activity_1vrs066" name="確認客戶是否有此筆刷卡交易">
-      <bpmn:incoming>Flow_0krptok</bpmn:incoming>
-      <bpmn:outgoing>Flow_0qg70g9</bpmn:outgoing>
-    </bpmn:task>
     <bpmn:sequenceFlow id="Flow_0krptok" sourceRef="Activity_0ihm0z7" targetRef="Activity_1vrs066" />
-    <bpmn:exclusiveGateway id="Gateway_0il6slt" name="確認是否有此筆刷卡交易">
+    <bpmn:exclusiveGateway id="Gateway_0il6slt" name="是否有此筆交易">
       <bpmn:incoming>Flow_0qg70g9</bpmn:incoming>
       <bpmn:outgoing>Flow_0mgyj52</bpmn:outgoing>
       <bpmn:outgoing>Flow_1cu5rd2</bpmn:outgoing>
@@ -45,30 +36,47 @@
     <bpmn:sequenceFlow id="Flow_1v8qutp" name="&#60; $10,000" sourceRef="Gateway_0kcn1kd" targetRef="Activity_10ohc97">
       <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${amount&lt;10000}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
-    <bpmn:sequenceFlow id="Flow_0mgyj52" name="有此筆刷卡交易" sourceRef="Gateway_0il6slt" targetRef="Activity_10ohc97">
+    <bpmn:sequenceFlow id="Flow_0mgyj52" name="有此筆交易" sourceRef="Gateway_0il6slt" targetRef="Activity_10ohc97">
       <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${isPay}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
     <bpmn:task id="Activity_11ucabk" name="拒絕請款支付">
       <bpmn:incoming>Flow_1cu5rd2</bpmn:incoming>
-      <bpmn:outgoing>Flow_1087vfp</bpmn:outgoing>
+      <bpmn:outgoing>Flow_0ykieeg</bpmn:outgoing>
     </bpmn:task>
-    <bpmn:sequenceFlow id="Flow_1cu5rd2" name="無此筆刷卡交易" sourceRef="Gateway_0il6slt" targetRef="Activity_11ucabk">
+    <bpmn:sequenceFlow id="Flow_1cu5rd2" name="無此筆交易" sourceRef="Gateway_0il6slt" targetRef="Activity_11ucabk">
       <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${!isPay}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
     <bpmn:endEvent id="Event_0fzeq4f">
       <bpmn:incoming>Flow_1twwi6n</bpmn:incoming>
     </bpmn:endEvent>
-    <bpmn:task id="Activity_0m2c45l" name="發送簡訊通知">
-      <bpmn:incoming>Flow_0gdp4ph</bpmn:incoming>
-      <bpmn:incoming>Flow_1087vfp</bpmn:incoming>
-      <bpmn:outgoing>Flow_1twwi6n</bpmn:outgoing>
-    </bpmn:task>
-    <bpmn:sequenceFlow id="Flow_0gdp4ph" sourceRef="Activity_10ohc97" targetRef="Activity_0m2c45l" />
-    <bpmn:sequenceFlow id="Flow_1087vfp" sourceRef="Activity_11ucabk" targetRef="Activity_0m2c45l" />
     <bpmn:sequenceFlow id="Flow_1twwi6n" sourceRef="Activity_0m2c45l" targetRef="Event_0fzeq4f" />
+    <bpmn:task id="Activity_1rtrjb3" name="系統通知&#10;客服人員">
+      <bpmn:incoming>Flow_0datj08</bpmn:incoming>
+      <bpmn:outgoing>Flow_190qu97</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:userTask id="Activity_1vrs066" name="確認交易&#10;是否存在" camunda:assignee="demo">
+      <bpmn:incoming>Flow_0krptok</bpmn:incoming>
+      <bpmn:outgoing>Flow_0qg70g9</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="Activity_0m2c45l" name="處理商品&#10;交易後續" camunda:assignee="demo">
+      <bpmn:incoming>Flow_0ohmnuo</bpmn:incoming>
+      <bpmn:incoming>Flow_0ykieeg</bpmn:incoming>
+      <bpmn:outgoing>Flow_1twwi6n</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="Flow_0ohmnuo" sourceRef="Activity_10ohc97" targetRef="Activity_0m2c45l" />
+    <bpmn:sequenceFlow id="Flow_0ykieeg" sourceRef="Activity_11ucabk" targetRef="Activity_0m2c45l" />
+    <bpmn:textAnnotation id="TextAnnotation_0jtos05">
+      <bpmn:text>銀行客服</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:textAnnotation id="TextAnnotation_16gl815">
+      <bpmn:text>持卡人</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:textAnnotation id="TextAnnotation_1f4rjwx">
+      <bpmn:text>請款商家</bpmn:text>
+    </bpmn:textAnnotation>
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
-    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_13gc9bk">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="CreditCardPayment_v1">
       <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
         <dc:Bounds x="179" y="159" width="36" height="36" />
         <bpmndi:BPMNLabel>
@@ -81,22 +89,14 @@
           <dc:Bounds x="315" y="116" width="51" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_087ygbq_di" bpmnElement="Activity_1rtrjb3">
-        <dc:Bounds x="470" y="250" width="100" height="80" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_0ihm0z7_di" bpmnElement="Activity_0ihm0z7">
+      <bpmndi:BPMNShape id="Activity_0ihm0z7_di" bpmnElement="Activity_0ihm0z7" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
         <dc:Bounds x="680" y="250" width="100" height="80" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_1vrs066_di" bpmnElement="Activity_1vrs066">
-        <dc:Bounds x="890" y="250" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Gateway_0il6slt_di" bpmnElement="Gateway_0il6slt" isMarkerVisible="true" bioc:stroke="#831311" bioc:fill="#ffcdd2" color:background-color="#ffcdd2" color:border-color="#831311">
         <dc:Bounds x="1105" y="265" width="50" height="50" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="1091" y="228" width="77" height="27" />
+          <dc:Bounds x="1091" y="245" width="77" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_11ucabk_di" bpmnElement="Activity_11ucabk">
@@ -107,12 +107,19 @@
         <dc:Bounds x="1190" y="137" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_0m2c45l_di" bpmnElement="Activity_0m2c45l">
-        <dc:Bounds x="1400" y="137" width="100" height="80" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_0fzeq4f_di" bpmnElement="Event_0fzeq4f">
         <dc:Bounds x="1602" y="159" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0op5uuy_di" bpmnElement="Activity_1rtrjb3">
+        <dc:Bounds x="470" y="250" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1x9ak4v_di" bpmnElement="Activity_1vrs066" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
+        <dc:Bounds x="890" y="250" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0yaqqlu_di" bpmnElement="Activity_0m2c45l" bioc:stroke="#6b3c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#6b3c00">
+        <dc:Bounds x="1400" y="137" width="100" height="80" />
+        <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Flow_19immdx_di" bpmnElement="Flow_19immdx">
         <di:waypoint x="215" y="177" />
@@ -150,29 +157,41 @@
         <di:waypoint x="1240" y="290" />
         <di:waypoint x="1240" y="217" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="1251" y="253" width="77" height="14" />
+          <dc:Bounds x="1252" y="253" width="55" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_1cu5rd2_di" bpmnElement="Flow_1cu5rd2">
         <di:waypoint x="1130" y="315" />
         <di:waypoint x="1130" y="401" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="1141" y="351" width="77" height="14" />
+          <dc:Bounds x="1142" y="351" width="55" height="14" />
         </bpmndi:BPMNLabel>
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_0gdp4ph_di" bpmnElement="Flow_0gdp4ph">
-        <di:waypoint x="1290" y="177" />
-        <di:waypoint x="1400" y="177" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_1087vfp_di" bpmnElement="Flow_1087vfp">
-        <di:waypoint x="1180" y="441" />
-        <di:waypoint x="1450" y="441" />
-        <di:waypoint x="1450" y="217" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_1twwi6n_di" bpmnElement="Flow_1twwi6n">
         <di:waypoint x="1500" y="177" />
         <di:waypoint x="1602" y="177" />
       </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0ohmnuo_di" bpmnElement="Flow_0ohmnuo">
+        <di:waypoint x="1290" y="177" />
+        <di:waypoint x="1400" y="177" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0ykieeg_di" bpmnElement="Flow_0ykieeg">
+        <di:waypoint x="1180" y="441" />
+        <di:waypoint x="1460" y="441" />
+        <di:waypoint x="1460" y="217" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="TextAnnotation_0jtos05_di" bpmnElement="TextAnnotation_0jtos05">
+        <dc:Bounds x="690" y="350" width="80" height="30" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0u9k8iw" bpmnElement="TextAnnotation_16gl815">
+        <dc:Bounds x="900" y="350" width="80" height="30" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1g511e2" bpmnElement="TextAnnotation_1f4rjwx">
+        <dc:Bounds x="1410" y="100" width="80" height="26" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
 </bpmn:definitions>
