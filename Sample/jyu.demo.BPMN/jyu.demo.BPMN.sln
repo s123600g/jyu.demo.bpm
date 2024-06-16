@@ -2,6 +2,10 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "jyu.demo.BPMN", "jyu.demo.BPMN.csproj", "{D5879595-1CDE-430C-8311-5A29182C8BB0}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lib", "Lib", "{F95F20E9-2B2B-4EE3-B189-B154862FD34E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "jyu.demo.BPMN.Camunda", "..\Lib\jyu.demo.BPMN.Camunda\jyu.demo.BPMN.Camunda.csproj", "{3330ADA4-8E91-4545-87A4-70E406EDEE8C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +16,12 @@ Global
 		{D5879595-1CDE-430C-8311-5A29182C8BB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D5879595-1CDE-430C-8311-5A29182C8BB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D5879595-1CDE-430C-8311-5A29182C8BB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3330ADA4-8E91-4545-87A4-70E406EDEE8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3330ADA4-8E91-4545-87A4-70E406EDEE8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3330ADA4-8E91-4545-87A4-70E406EDEE8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3330ADA4-8E91-4545-87A4-70E406EDEE8C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3330ADA4-8E91-4545-87A4-70E406EDEE8C} = {F95F20E9-2B2B-4EE3-B189-B154862FD34E}
 	EndGlobalSection
 EndGlobal
