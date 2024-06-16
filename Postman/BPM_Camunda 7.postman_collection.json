@@ -1,0 +1,847 @@
+{
+	"info": {
+		"_postman_id": "ce80c9a0-8829-4ba9-bdec-83e73ab09c8e",
+		"name": "BPM_Camunda 7",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12797250"
+	},
+	"item": [
+		{
+			"name": "Processs",
+			"item": [
+				{
+					"name": "Start process",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"variables\": {\r\n        \"amount\": {\r\n            \"value\": \"15000\",\r\n            \"type\": \"Integer\"\r\n        }\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Protocol}}://{{Host}}:{{Port}}/{{RootPath}}/process-definition/key/{{CreditPayment_v1_Process}}/start",
+							"protocol": "{{Protocol}}",
+							"host": [
+								"{{Host}}"
+							],
+							"port": "{{Port}}",
+							"path": [
+								"{{RootPath}}",
+								"process-definition",
+								"key",
+								"{{CreditPayment_v1_Process}}",
+								"start"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Query process variables",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Protocol}}://{{Host}}:{{Port}}/{{RootPath}}/process-instance/52ae7ace-272e-11ef-906f-aa38a68b5185/variables?deserializeValues=true",
+							"protocol": "{{Protocol}}",
+							"host": [
+								"{{Host}}"
+							],
+							"port": "{{Port}}",
+							"path": [
+								"{{RootPath}}",
+								"process-instance",
+								"52ae7ace-272e-11ef-906f-aa38a68b5185",
+								"variables"
+							],
+							"query": [
+								{
+									"key": "deserializeValues",
+									"value": "true"
+								},
+								{
+									"key": "deserializeValues",
+									"value": "false",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Task",
+			"item": [
+				{
+					"name": "Query task list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Protocol}}://{{Host}}:{{Port}}/{{RootPath}}/task?withoutTenantId=false&includeAssignedTasks=false&assigned=false&unassigned=false&withoutDueDate=false&withCandidateGroups=false&withoutCandidateGroups=false&withCandidateUsers=false&withoutCandidateUsers=false&active=false&suspended=false&variableNamesIgnoreCase=false&variableValuesIgnoreCase=false",
+							"protocol": "{{Protocol}}",
+							"host": [
+								"{{Host}}"
+							],
+							"port": "{{Port}}",
+							"path": [
+								"{{RootPath}}",
+								"task"
+							],
+							"query": [
+								{
+									"key": "withoutTenantId",
+									"value": "false"
+								},
+								{
+									"key": "includeAssignedTasks",
+									"value": "false"
+								},
+								{
+									"key": "assigned",
+									"value": "false"
+								},
+								{
+									"key": "unassigned",
+									"value": "false"
+								},
+								{
+									"key": "withoutDueDate",
+									"value": "false"
+								},
+								{
+									"key": "withCandidateGroups",
+									"value": "false"
+								},
+								{
+									"key": "withoutCandidateGroups",
+									"value": "false"
+								},
+								{
+									"key": "withCandidateUsers",
+									"value": "false"
+								},
+								{
+									"key": "withoutCandidateUsers",
+									"value": "false"
+								},
+								{
+									"key": "active",
+									"value": "false"
+								},
+								{
+									"key": "suspended",
+									"value": "false"
+								},
+								{
+									"key": "variableNamesIgnoreCase",
+									"value": "false"
+								},
+								{
+									"key": "variableValuesIgnoreCase",
+									"value": "false"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Query task list by processInstanceId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Protocol}}://{{Host}}:{{Port}}/{{RootPath}}/task?processInstanceId=ffb20a78-2736-11ef-906f-aa38a68b5185&withoutTenantId=false&includeAssignedTasks=false&assigned=false&unassigned=false&withoutDueDate=false&withCandidateGroups=false&withoutCandidateGroups=false&withCandidateUsers=false&withoutCandidateUsers=false&active=false&suspended=false&variableNamesIgnoreCase=false&variableValuesIgnoreCase=false",
+							"protocol": "{{Protocol}}",
+							"host": [
+								"{{Host}}"
+							],
+							"port": "{{Port}}",
+							"path": [
+								"{{RootPath}}",
+								"task"
+							],
+							"query": [
+								{
+									"key": "processInstanceId",
+									"value": "ffb20a78-2736-11ef-906f-aa38a68b5185"
+								},
+								{
+									"key": "withoutTenantId",
+									"value": "false"
+								},
+								{
+									"key": "includeAssignedTasks",
+									"value": "false"
+								},
+								{
+									"key": "assigned",
+									"value": "false"
+								},
+								{
+									"key": "unassigned",
+									"value": "false"
+								},
+								{
+									"key": "withoutDueDate",
+									"value": "false"
+								},
+								{
+									"key": "withCandidateGroups",
+									"value": "false"
+								},
+								{
+									"key": "withoutCandidateGroups",
+									"value": "false"
+								},
+								{
+									"key": "withCandidateUsers",
+									"value": "false"
+								},
+								{
+									"key": "withoutCandidateUsers",
+									"value": "false"
+								},
+								{
+									"key": "active",
+									"value": "false"
+								},
+								{
+									"key": "suspended",
+									"value": "false"
+								},
+								{
+									"key": "variableNamesIgnoreCase",
+									"value": "false"
+								},
+								{
+									"key": "variableValuesIgnoreCase",
+									"value": "false"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Complete task",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"variables\": {}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Protocol}}://{{Host}}:{{Port}}/{{RootPath}}/task/ea2376dd-2734-11ef-906f-aa38a68b5185/complete",
+							"protocol": "{{Protocol}}",
+							"host": [
+								"{{Host}}"
+							],
+							"port": "{{Port}}",
+							"path": [
+								"{{RootPath}}",
+								"task",
+								"ea2376dd-2734-11ef-906f-aa38a68b5185",
+								"complete"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Demo",
+			"item": [
+				{
+					"name": "CreditCardPayment_v1",
+					"item": [
+						{
+							"name": "Process",
+							"item": [
+								{
+									"name": "Start process for CreditPayment_v1",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"variables\": {\r\n        \"amount\": {\r\n            \"value\": \"15000\",\r\n            \"type\": \"Integer\"\r\n        }\r\n    }\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{Protocol}}://{{Host}}:{{Port}}/{{RootPath}}/process-definition/key/{{CreditPayment_v1_Process}}/start",
+											"protocol": "{{Protocol}}",
+											"host": [
+												"{{Host}}"
+											],
+											"port": "{{Port}}",
+											"path": [
+												"{{RootPath}}",
+												"process-definition",
+												"key",
+												"{{CreditPayment_v1_Process}}",
+												"start"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "1-1.Process_Payment amount less than $10,000",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"variables\": {\r\n        \"amount\": {\r\n            \"value\": \"1000\",\r\n            \"type\": \"Integer\"\r\n        }\r\n    }\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{Protocol}}://{{Host}}:{{Port}}/{{RootPath}}/process-definition/key/{{CreditPayment_v1_Process}}/start",
+													"protocol": "{{Protocol}}",
+													"host": [
+														"{{Host}}"
+													],
+													"port": "{{Port}}",
+													"path": [
+														"{{RootPath}}",
+														"process-definition",
+														"key",
+														"{{CreditPayment_v1_Process}}",
+														"start"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												},
+												{
+													"key": "Content-Length",
+													"value": "348"
+												},
+												{
+													"key": "Date",
+													"value": "Mon, 10 Jun 2024 13:35:38 GMT"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=60"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"links\": [\n        {\n            \"method\": \"GET\",\n            \"href\": \"http://localhost:8034/engine-rest/process-instance/52ae7ace-272e-11ef-906f-aa38a68b5185\",\n            \"rel\": \"self\"\n        }\n    ],\n    \"id\": \"52ae7ace-272e-11ef-906f-aa38a68b5185\",\n    \"definitionId\": \"CreditCardPayment_v1:1:0999bd29-2703-11ef-906f-aa38a68b5185\",\n    \"businessKey\": null,\n    \"caseInstanceId\": null,\n    \"ended\": false,\n    \"suspended\": false,\n    \"tenantId\": null\n}"
+										},
+										{
+											"name": "2-1.Process_Payment amount more than $10,000",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"variables\": {\r\n        \"amount\": {\r\n            \"value\": \"15000\",\r\n            \"type\": \"Integer\"\r\n        }\r\n    }\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{Protocol}}://{{Host}}:{{Port}}/{{RootPath}}/process-definition/key/{{CreditPayment_v1_Process}}/start",
+													"protocol": "{{Protocol}}",
+													"host": [
+														"{{Host}}"
+													],
+													"port": "{{Port}}",
+													"path": [
+														"{{RootPath}}",
+														"process-definition",
+														"key",
+														"{{CreditPayment_v1_Process}}",
+														"start"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												},
+												{
+													"key": "Content-Length",
+													"value": "348"
+												},
+												{
+													"key": "Date",
+													"value": "Mon, 10 Jun 2024 13:37:43 GMT"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=60"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"links\": [\n        {\n            \"method\": \"GET\",\n            \"href\": \"http://localhost:8034/engine-rest/process-instance/9d68e1aa-272e-11ef-906f-aa38a68b5185\",\n            \"rel\": \"self\"\n        }\n    ],\n    \"id\": \"9d68e1aa-272e-11ef-906f-aa38a68b5185\",\n    \"definitionId\": \"CreditCardPayment_v1:1:0999bd29-2703-11ef-906f-aa38a68b5185\",\n    \"businessKey\": null,\n    \"caseInstanceId\": null,\n    \"ended\": false,\n    \"suspended\": false,\n    \"tenantId\": null\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Task",
+							"item": [
+								{
+									"name": "Complete task",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"variables\": {}\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{Protocol}}://{{Host}}:{{Port}}/{{RootPath}}/task/ea2376dd-2734-11ef-906f-aa38a68b5185/complete",
+											"protocol": "{{Protocol}}",
+											"host": [
+												"{{Host}}"
+											],
+											"port": "{{Port}}",
+											"path": [
+												"{{RootPath}}",
+												"task",
+												"ea2376dd-2734-11ef-906f-aa38a68b5185",
+												"complete"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "2-3-1.Gateway.Transaction exists",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"variables\": {\r\n        \"isPay\": {\r\n            \"value\": true\r\n        }\r\n    }\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{Protocol}}://{{Host}}:{{Port}}/{{RootPath}}/task/feec6d28-2732-11ef-906f-aa38a68b5185/complete",
+													"protocol": "{{Protocol}}",
+													"host": [
+														"{{Host}}"
+													],
+													"port": "{{Port}}",
+													"path": [
+														"{{RootPath}}",
+														"task",
+														"feec6d28-2732-11ef-906f-aa38a68b5185",
+														"complete"
+													]
+												}
+											},
+											"status": "No Content",
+											"code": 204,
+											"_postman_previewlanguage": "plain",
+											"header": [
+												{
+													"key": "Date",
+													"value": "Mon, 10 Jun 2024 14:14:03 GMT"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=60"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												}
+											],
+											"cookie": [],
+											"body": null
+										},
+										{
+											"name": "2-2.UserTask_Bank CS",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"variables\": {}\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{Protocol}}://{{Host}}:{{Port}}/{{RootPath}}/task/bea40c56-2b98-11ef-9794-2a764872f911/complete",
+													"protocol": "{{Protocol}}",
+													"host": [
+														"{{Host}}"
+													],
+													"port": "{{Port}}",
+													"path": [
+														"{{RootPath}}",
+														"task",
+														"bea40c56-2b98-11ef-9794-2a764872f911",
+														"complete"
+													]
+												}
+											},
+											"status": "No Content",
+											"code": 204,
+											"_postman_previewlanguage": "plain",
+											"header": [
+												{
+													"key": "Date",
+													"value": "Mon, 10 Jun 2024 14:24:05 GMT"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=60"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												}
+											],
+											"cookie": [],
+											"body": null
+										},
+										{
+											"name": "2-4-1.UserTask_Cardholder_Transaction exists",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"variables\": {\r\n        \"isPay\": {\r\n            \"value\": true\r\n        }\r\n    }\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{Protocol}}://{{Host}}:{{Port}}/{{RootPath}}/task/ea156aaa-2b98-11ef-9794-2a764872f911/complete",
+													"protocol": "{{Protocol}}",
+													"host": [
+														"{{Host}}"
+													],
+													"port": "{{Port}}",
+													"path": [
+														"{{RootPath}}",
+														"task",
+														"ea156aaa-2b98-11ef-9794-2a764872f911",
+														"complete"
+													]
+												}
+											},
+											"status": "No Content",
+											"code": 204,
+											"_postman_previewlanguage": "plain",
+											"header": [
+												{
+													"key": "Date",
+													"value": "Mon, 10 Jun 2024 14:24:05 GMT"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=60"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												}
+											],
+											"cookie": [],
+											"body": null
+										},
+										{
+											"name": "2-4-2.UserTask_Cardholder_Transaction does not exist",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"variables\": {\r\n        \"isPay\": {\r\n            \"value\": false\r\n        }\r\n    }\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{Protocol}}://{{Host}}:{{Port}}/{{RootPath}}/task/9d6320c6-2b97-11ef-9794-2a764872f911/complete",
+													"protocol": "{{Protocol}}",
+													"host": [
+														"{{Host}}"
+													],
+													"port": "{{Port}}",
+													"path": [
+														"{{RootPath}}",
+														"task",
+														"9d6320c6-2b97-11ef-9794-2a764872f911",
+														"complete"
+													]
+												}
+											},
+											"status": "No Content",
+											"code": 204,
+											"_postman_previewlanguage": "plain",
+											"header": [
+												{
+													"key": "Date",
+													"value": "Mon, 10 Jun 2024 14:24:05 GMT"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=60"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												}
+											],
+											"cookie": [],
+											"body": null
+										},
+										{
+											"name": "3-1.UserTask_Billing Vendor",
+											"originalRequest": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n    \"variables\": {}\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{Protocol}}://{{Host}}:{{Port}}/{{RootPath}}/task/fbe75642-2b98-11ef-9794-2a764872f911/complete",
+													"protocol": "{{Protocol}}",
+													"host": [
+														"{{Host}}"
+													],
+													"port": "{{Port}}",
+													"path": [
+														"{{RootPath}}",
+														"task",
+														"fbe75642-2b98-11ef-9794-2a764872f911",
+														"complete"
+													]
+												}
+											},
+											"status": "No Content",
+											"code": 204,
+											"_postman_previewlanguage": "plain",
+											"header": [
+												{
+													"key": "Date",
+													"value": "Mon, 10 Jun 2024 14:24:05 GMT"
+												},
+												{
+													"key": "Keep-Alive",
+													"value": "timeout=60"
+												},
+												{
+													"key": "Connection",
+													"value": "keep-alive"
+												}
+											],
+											"cookie": [],
+											"body": null
+										}
+									]
+								},
+								{
+									"name": "Query task list by processInstanceId",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{Protocol}}://{{Host}}:{{Port}}/{{RootPath}}/task?processInstanceId=bea3e53f-2b98-11ef-9794-2a764872f911&withoutTenantId=false&includeAssignedTasks=false&assigned=false&unassigned=false&withoutDueDate=false&withCandidateGroups=false&withoutCandidateGroups=false&withCandidateUsers=false&withoutCandidateUsers=false&active=false&suspended=false&variableNamesIgnoreCase=false&variableValuesIgnoreCase=false",
+											"protocol": "{{Protocol}}",
+											"host": [
+												"{{Host}}"
+											],
+											"port": "{{Port}}",
+											"path": [
+												"{{RootPath}}",
+												"task"
+											],
+											"query": [
+												{
+													"key": "processInstanceId",
+													"value": "bea3e53f-2b98-11ef-9794-2a764872f911",
+													"description": "Process Instance Id"
+												},
+												{
+													"key": "withoutTenantId",
+													"value": "false"
+												},
+												{
+													"key": "includeAssignedTasks",
+													"value": "false"
+												},
+												{
+													"key": "assigned",
+													"value": "false"
+												},
+												{
+													"key": "unassigned",
+													"value": "false"
+												},
+												{
+													"key": "withoutDueDate",
+													"value": "false"
+												},
+												{
+													"key": "withCandidateGroups",
+													"value": "false"
+												},
+												{
+													"key": "withoutCandidateGroups",
+													"value": "false"
+												},
+												{
+													"key": "withCandidateUsers",
+													"value": "false"
+												},
+												{
+													"key": "withoutCandidateUsers",
+													"value": "false"
+												},
+												{
+													"key": "active",
+													"value": "false"
+												},
+												{
+													"key": "suspended",
+													"value": "false"
+												},
+												{
+													"key": "variableNamesIgnoreCase",
+													"value": "false"
+												},
+												{
+													"key": "variableValuesIgnoreCase",
+													"value": "false"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "Host",
+			"value": "localhost",
+			"type": "string"
+		},
+		{
+			"key": "Port",
+			"value": "8034",
+			"type": "string"
+		},
+		{
+			"key": "RootPath",
+			"value": "engine-rest",
+			"type": "string"
+		},
+		{
+			"key": "Protocol",
+			"value": "http",
+			"type": "string"
+		},
+		{
+			"key": "CreditPayment_v1_Process",
+			"value": "CreditCardPayment_v1",
+			"type": "string"
+		},
+		{
+			"key": "BusinessKey",
+			"value": "Demo1",
+			"type": "string"
+		}
+	]
+}
