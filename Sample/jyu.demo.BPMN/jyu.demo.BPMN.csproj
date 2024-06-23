@@ -33,4 +33,16 @@
       </None>
     </ItemGroup>
 
+    <ItemGroup>
+      <Compile Update="jyu.demo.BpmDomain2\IExternalTaskHandler.cs">
+        <Link>jyu.demo.BpmDomain\IExternalTaskHandler.cs</Link>
+      </Compile>
+      <Compile Update="jyu.demo.BpmDomain2\ExternalTaskHandlerFactory.cs">
+        <Link>jyu.demo.BpmDomain\ExternalTaskHandlerFactory.cs</Link>
+      </Compile>
+      <Compile Update="jyu.demo.BpmDomain2\Enums\ServiceTopicName.cs">
+        <Link>jyu.demo.BpmDomain\Enums\ServiceTopicName.cs</Link>
+      </Compile>
+    </ItemGroup>
+
 </Project>

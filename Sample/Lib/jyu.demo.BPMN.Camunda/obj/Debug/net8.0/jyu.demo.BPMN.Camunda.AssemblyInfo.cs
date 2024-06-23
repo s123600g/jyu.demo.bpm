@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("jyu.demo.BPMN.Camunda")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cb43cf886730ea685ee8277e15918fbdf22ab5c5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+00fcd5508e32c4567ebbdcb5ac0338d0374db632")]
 [assembly: System.Reflection.AssemblyProductAttribute("jyu.demo.BPMN.Camunda")]
 [assembly: System.Reflection.AssemblyTitleAttribute("jyu.demo.BPMN.Camunda")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "jyu.demo.Common/1.0.0": {
+        "runtime": {
+          "jyu.demo.Common.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "jyu.demo.Common/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

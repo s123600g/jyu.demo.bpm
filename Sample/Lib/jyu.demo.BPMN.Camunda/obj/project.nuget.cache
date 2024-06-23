@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "uDqu1tZTrVSEfXN1r5odAFGkmbH+Ro5fWoAzsj94yNp0b8lSsrRIe5ggqyvUzKCheK596D6+ldMHTN6JrcNl2w==",
+  "dgSpecHash": "f0Hc4sFc52FGNZ/Z84YmB87SCMScrBLXM2hIEInbXYQFBMbR2FD8eTYJjpZSWOi+NHVbuTWiLpWq/Ex8XORQrA==",
   "success": true,
   "projectFilePath": "C:\\Project\\Local\\jyu.demo.BPMN\\Sample\\Lib\\jyu.demo.BPMN.Camunda\\jyu.demo.BPMN.Camunda.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\JYUN-YULI\\.nuget\\packages\\microsoft.aspnetcore.webutilities\\8.0.6\\microsoft.aspnetcore.webutilities.8.0.6.nupkg.sha512",
     "C:\\Users\\JYUN-YULI\\.nuget\\packages\\microsoft.extensions.configuration\\8.0.0\\microsoft.extensions.configuration.8.0.0.nupkg.sha512",
     "C:\\Users\\JYUN-YULI\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\8.0.0\\microsoft.extensions.configuration.abstractions.8.0.0.nupkg.sha512",
     "C:\\Users\\JYUN-YULI\\.nuget\\packages\\microsoft.extensions.configuration.binder\\8.0.0\\microsoft.extensions.configuration.binder.8.0.0.nupkg.sha512",
@@ -17,7 +18,9 @@
     "C:\\Users\\JYUN-YULI\\.nuget\\packages\\microsoft.extensions.options\\8.0.0\\microsoft.extensions.options.8.0.0.nupkg.sha512",
     "C:\\Users\\JYUN-YULI\\.nuget\\packages\\microsoft.extensions.options.configurationextensions\\8.0.0\\microsoft.extensions.options.configurationextensions.8.0.0.nupkg.sha512",
     "C:\\Users\\JYUN-YULI\\.nuget\\packages\\microsoft.extensions.primitives\\8.0.0\\microsoft.extensions.primitives.8.0.0.nupkg.sha512",
-    "C:\\Users\\JYUN-YULI\\.nuget\\packages\\system.diagnostics.diagnosticsource\\8.0.0\\system.diagnostics.diagnosticsource.8.0.0.nupkg.sha512"
+    "C:\\Users\\JYUN-YULI\\.nuget\\packages\\microsoft.net.http.headers\\8.0.6\\microsoft.net.http.headers.8.0.6.nupkg.sha512",
+    "C:\\Users\\JYUN-YULI\\.nuget\\packages\\system.diagnostics.diagnosticsource\\8.0.0\\system.diagnostics.diagnosticsource.8.0.0.nupkg.sha512",
+    "C:\\Users\\JYUN-YULI\\.nuget\\packages\\system.io.pipelines\\8.0.0\\system.io.pipelines.8.0.0.nupkg.sha512"
   ],
   "logs": []
 }

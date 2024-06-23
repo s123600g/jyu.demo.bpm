@@ -1,11 +1,12 @@
+namespace jyu.demo.BPMN.Camunda.Services.BpmEngingClient;
+
 using System.Net.Http.Json;
 using System.Text;
-using jyu.demo.BPMN.Camunda.Exceptions;
-using jyu.demo.BPMN.Camunda.Models;
-using jyu.demo.BPMN.Camunda.Models.CamundaEngineProcessClient;
+using Exceptions;
+using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Options;
-
-namespace jyu.demo.BPMN.Camunda.Services.BpmEngingClient;
+using Models;
+using Models.CamundaEngineProcessClient;
 
 public class CamundaEngineClient : ICamundaEngineClient
 {
@@ -41,25 +42,37 @@ public class CamundaEngineClient : ICamundaEngineClient
         HttpResponseMessage httpRs =
             await HttpPostAsJsonAsync(argPath: path, argRequestBody: argStartNewProcessInstanceRq);
 
-        StartProcessRs? resContent = await httpRs.Content.ReadFromJsonAsync<StartProcessRs>();
+        StartProcessInstanceRs? resContent = await httpRs.Content.ReadFromJsonAsync<StartProcessInstanceRs>();
 
         string? result = resContent?.ProcessInstanceId ?? null;
 
         return result;
     }
 
-    public async Task<string?> QueryProcessCurrentTaskIdAsync(
+    /// <summary>
+    /// 查詢當前ProcessInstance Task資訊
+    /// </summary>
+    /// <param name="argProcessInstanceId"></param>
+    /// <returns></returns>
+    public async Task<List<QueryProcessCurrentTaskInfoRs>> QueryProcessCurrentTaskInfoAsync(
         string argProcessInstanceId
     )
     {
-        string result = null;
+        string path = "task";
 
-        using (var client = _httpClientFactory.CreateClient())
+        Dictionary<string, string> queryParams = new Dictionary<string, string>
         {
-            client.BaseAddress = new Uri(_camundaEngineBassAddress);
+            ["processInstanceId"] = argProcessInstanceId
+        };
 
-            string path = $"";
-        }
+        HttpResponseMessage httpRs = await HttpGetAsync(
+            argPath: path
+            , argQueryParams: queryParams
+        );
+
+        List<QueryProcessCurrentTaskInfoRs> result =
+            await httpRs.Content.ReadFromJsonAsync<List<QueryProcessCurrentTaskInfoRs>>()
+            ?? new List<QueryProcessCurrentTaskInfoRs>();
 
         return result;
     }
@@ -68,29 +81,76 @@ public class CamundaEngineClient : ICamundaEngineClient
         string argProcessInstanceTaskId
     )
     {
+        string path = $"task/{argProcessInstanceTaskId}/complete";
+
         throw new NotImplementedException();
     }
 
+    /// <summary>
+    /// 查詢當前需處理External Task清單
+    /// </summary>
+    /// <returns></returns>
+    public async Task<List<QueryExternalTaskRs>> QueryExternalTaskAsync()
+    {
+        string path = $"external-task";
+
+        HttpResponseMessage httpRs = await HttpGetAsync(
+            argPath: path
+        );
+
+        List<QueryExternalTaskRs> result =
+            await httpRs.Content.ReadFromJsonAsync<List<QueryExternalTaskRs>>() ?? new List<QueryExternalTaskRs>();
+
+        return result;
+    }
+
     #region 內部處理邏輯
+
+    private async Task<HttpResponseMessage> HttpGetAsync(
+        string argPath
+        , Dictionary<string, string>? argQueryParams = null
+    )
+    {
+        using var client = _httpClientFactory.CreateClient();
+        client.BaseAddress = new Uri(_camundaEngineBassAddress);
+        string path = $"{_camundaConfigOptions.ContextPath}/{argPath}";
+
+        if (
+            argQueryParams != null
+            &&
+            argQueryParams.Any()
+        )
+        {
+            path = QueryHelpers.AddQueryString(path, argQueryParams);
+        }
+
+        HttpResponseMessage httpRs = await client.GetAsync(requestUri: path);
+
+        if (!httpRs.IsSuccessStatusCode)
+        {
+            throw new CamundaApiFailException();
+        }
+
+        return httpRs;
+    }
 
     private async Task<HttpResponseMessage> HttpPostAsJsonAsync(
         string argPath
         , object argRequestBody
     )
     {
-        HttpResponseMessage httpRs = new HttpResponseMessage();
+        using var client = _httpClientFactory.CreateClient();
+        client.BaseAddress = new Uri(_camundaEngineBassAddress);
+        string path = $"{_camundaConfigOptions.ContextPath}/{argPath}";
 
-        using (var client = _httpClientFactory.CreateClient())
+        HttpResponseMessage httpRs = await client.PostAsJsonAsync(
+            requestUri: path
+            , value: argRequestBody
+        );
+
+        if (!httpRs.IsSuccessStatusCode)
         {
-            client.BaseAddress = new Uri(_camundaEngineBassAddress);
-            string path = $"{_camundaConfigOptions.ContextPath}/{argPath}";
-
-            httpRs = await client.PostAsJsonAsync(path, argRequestBody);
-
-            if (!httpRs.IsSuccessStatusCode)
-            {
-                throw new CamundaApiFailException();
-            }
+            throw new CamundaApiFailException();
         }
 
         return httpRs;

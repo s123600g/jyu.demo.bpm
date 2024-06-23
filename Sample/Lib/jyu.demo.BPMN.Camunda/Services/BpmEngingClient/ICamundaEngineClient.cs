@@ -1,6 +1,6 @@
-using jyu.demo.BPMN.Camunda.Models.CamundaEngineProcessClient;
-
 namespace jyu.demo.BPMN.Camunda.Services.BpmEngingClient;
+
+using Models.CamundaEngineProcessClient;
 
 public interface ICamundaEngineClient
 {
@@ -9,11 +9,13 @@ public interface ICamundaEngineClient
         , StartNewProcessInstanceRq argStartNewProcessInstanceRq
     );
 
-    public Task<string?>  QueryProcessCurrentTaskIdAsync(
+    public Task<List<QueryProcessCurrentTaskInfoRs>> QueryProcessCurrentTaskInfoAsync(
         string argProcessInstanceId
     );
 
     public string CompleteProcessCurrentTaskAsync(
         string argProcessInstanceTaskId
     );
+
+    public Task<List<QueryExternalTaskRs>> QueryExternalTaskAsync();
 }

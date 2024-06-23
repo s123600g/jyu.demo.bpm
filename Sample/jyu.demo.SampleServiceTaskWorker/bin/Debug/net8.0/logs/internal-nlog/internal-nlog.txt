@@ -1,0 +1,280 @@
+2024-06-23 19:38:28.1123 Info Registered target NLog.Targets.ConsoleTarget(Name=logconsole)
+2024-06-23 19:38:28.1261 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-06-23 19:39:11.2833 Info Registered target NLog.Targets.ConsoleTarget(Name=logconsole)
+2024-06-23 19:39:11.2942 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-06-23 19:39:11.3596 Info Registered target NLog.Targets.ConsoleTarget(Name=logconsole)
+2024-06-23 19:39:11.3596 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-06-23 19:39:11.3596 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.2.2526. Product version: 5.3.2+8d52d4f3fcdbd84beae3442e1fdc8125598ed81f. GlobalAssemblyCache: False
+2024-06-23 19:39:11.3596 Info Validating config: TargetNames=logfile, logconsole, ConfigItems=28 ConfigSection=NLog
+2024-06-23 19:39:11.3808 Info Configuration initialized.
+2024-06-23 19:39:11.3808 Info Closing old configuration.
+2024-06-23 19:39:11.3896 Info Validating config: TargetNames=logfile, logconsole, ConfigItems=28 ConfigSection=NLog
+2024-06-23 19:39:11.3896 Info Configuration initialized.
+2024-06-23 19:39:36.0783 Info Registered target NLog.Targets.ConsoleTarget(Name=logconsole)
+2024-06-23 19:39:36.0931 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-06-23 19:39:36.1665 Info Registered target NLog.Targets.ConsoleTarget(Name=logconsole)
+2024-06-23 19:39:36.1665 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-06-23 19:39:36.1702 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.2.2526. Product version: 5.3.2+8d52d4f3fcdbd84beae3442e1fdc8125598ed81f. GlobalAssemblyCache: False
+2024-06-23 19:39:36.1702 Info Validating config: TargetNames=logfile, logconsole, ConfigItems=28 ConfigSection=NLog
+2024-06-23 19:39:36.1890 Info Configuration initialized.
+2024-06-23 19:39:36.1890 Info Closing old configuration.
+2024-06-23 19:39:36.2016 Info Validating config: TargetNames=logfile, logconsole, ConfigItems=28 ConfigSection=NLog
+2024-06-23 19:39:36.2016 Info Configuration initialized.
+2024-06-23 19:46:01.6100 Info Registered target NLog.Targets.ConsoleTarget(Name=logconsole)
+2024-06-23 19:46:01.6216 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-06-23 19:46:01.6917 Info Registered target NLog.Targets.ConsoleTarget(Name=logconsole)
+2024-06-23 19:46:01.6917 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-06-23 19:46:01.6917 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.2.2526. Product version: 5.3.2+8d52d4f3fcdbd84beae3442e1fdc8125598ed81f. GlobalAssemblyCache: False
+2024-06-23 19:46:01.6917 Info Validating config: TargetNames=logfile, logconsole, ConfigItems=28 ConfigSection=NLog
+2024-06-23 19:46:01.7111 Info Configuration initialized.
+2024-06-23 19:46:01.7111 Info Closing old configuration.
+2024-06-23 19:46:01.7210 Info Validating config: TargetNames=logfile, logconsole, ConfigItems=28 ConfigSection=NLog
+2024-06-23 19:46:01.7210 Info Configuration initialized.
+2024-06-23 19:57:35.9937 Info Registered target NLog.Targets.ConsoleTarget(Name=logconsole)
+2024-06-23 19:57:36.0045 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-06-23 19:58:51.0024 Info Registered target NLog.Targets.ConsoleTarget(Name=logconsole)
+2024-06-23 19:58:51.0171 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-06-23 19:58:51.1059 Info Registered target NLog.Targets.ConsoleTarget(Name=logconsole)
+2024-06-23 19:58:51.1059 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-06-23 19:58:51.1059 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.2.2526. Product version: 5.3.2+8d52d4f3fcdbd84beae3442e1fdc8125598ed81f. GlobalAssemblyCache: False
+2024-06-23 19:58:51.1059 Info Validating config: TargetNames=logfile, logconsole, ConfigItems=28 ConfigSection=NLog
+2024-06-23 19:58:51.1285 Info Configuration initialized.
+2024-06-23 19:58:51.1285 Info Closing old configuration.
+2024-06-23 19:58:51.1376 Info Validating config: TargetNames=logfile, logconsole, ConfigItems=28 ConfigSection=NLog
+2024-06-23 19:58:51.1376 Info Configuration initialized.
+2024-06-23 19:59:39.1339 Info Registered target NLog.Targets.ConsoleTarget(Name=logconsole)
+2024-06-23 19:59:39.1429 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-06-23 19:59:39.2856 Info Registered target NLog.Targets.ConsoleTarget(Name=logconsole)
+2024-06-23 19:59:39.2856 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-06-23 19:59:39.2856 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.2.2526. Product version: 5.3.2+8d52d4f3fcdbd84beae3442e1fdc8125598ed81f. GlobalAssemblyCache: False
+2024-06-23 19:59:39.2856 Info Validating config: TargetNames=logfile, logconsole, ConfigItems=28 ConfigSection=NLog
+2024-06-23 19:59:39.3040 Info Configuration initialized.
+2024-06-23 19:59:39.3040 Info Closing old configuration.
+2024-06-23 19:59:39.3133 Info Validating config: TargetNames=logfile, logconsole, ConfigItems=28 ConfigSection=NLog
+2024-06-23 19:59:39.3133 Info Configuration initialized.
+2024-06-23 20:01:58.4239 Info Registered target NLog.Targets.ConsoleTarget(Name=logconsole)
+2024-06-23 20:01:58.4706 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-06-23 20:04:37.0571 Info Registered target NLog.Targets.ConsoleTarget(Name=logconsole)
+2024-06-23 20:04:37.0668 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-06-23 20:04:37.1418 Info Registered target NLog.Targets.ConsoleTarget(Name=logconsole)
+2024-06-23 20:04:37.1418 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-06-23 20:04:37.1418 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.2.2526. Product version: 5.3.2+8d52d4f3fcdbd84beae3442e1fdc8125598ed81f. GlobalAssemblyCache: False
+2024-06-23 20:04:37.1418 Info Validating config: TargetNames=logfile, logconsole, ConfigItems=28 ConfigSection=NLog
+2024-06-23 20:04:37.1670 Info Configuration initialized.
+2024-06-23 20:04:37.1670 Info Closing old configuration.
+2024-06-23 20:04:37.1776 Info Validating config: TargetNames=logfile, logconsole, ConfigItems=28 ConfigSection=NLog
+2024-06-23 20:04:37.1776 Info Configuration initialized.
+2024-06-23 20:06:32.0511 Info Registered target NLog.Targets.ConsoleTarget(Name=logconsole)
+2024-06-23 20:06:32.0634 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-06-23 20:07:53.7012 Info Registered target NLog.Targets.ConsoleTarget(Name=logconsole)
+2024-06-23 20:07:53.7195 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-06-23 20:07:53.8250 Info Registered target NLog.Targets.ConsoleTarget(Name=logconsole)
+2024-06-23 20:07:53.8264 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-06-23 20:07:53.8264 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.2.2526. Product version: 5.3.2+8d52d4f3fcdbd84beae3442e1fdc8125598ed81f. GlobalAssemblyCache: False
+2024-06-23 20:07:53.8264 Info Validating config: TargetNames=logfile, logconsole, ConfigItems=28 ConfigSection=NLog
+2024-06-23 20:07:53.8549 Info Configuration initialized.
+2024-06-23 20:07:53.8574 Info Closing old configuration.
+2024-06-23 20:07:53.8574 Info Validating config: TargetNames=logfile, logconsole, ConfigItems=28 ConfigSection=NLog
+2024-06-23 20:07:53.8574 Info Configuration initialized.
+2024-06-23 20:09:27.8099 Info Registered target NLog.Targets.ConsoleTarget(Name=logconsole)
+2024-06-23 20:09:27.8294 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-06-23 20:09:56.3391 Info Registered target NLog.Targets.ConsoleTarget(Name=logconsole)
+2024-06-23 20:09:56.3577 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-06-23 20:09:56.4861 Info Registered target NLog.Targets.ConsoleTarget(Name=logconsole)
+2024-06-23 20:09:56.4861 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-06-23 20:09:56.4861 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.2.2526. Product version: 5.3.2+8d52d4f3fcdbd84beae3442e1fdc8125598ed81f. GlobalAssemblyCache: False
+2024-06-23 20:09:56.5022 Info Validating config: TargetNames=logfile, logconsole, ConfigItems=28 ConfigSection=NLog
+2024-06-23 20:09:56.5286 Info Configuration initialized.
+2024-06-23 20:09:56.5286 Info Closing old configuration.
+2024-06-23 20:09:56.5286 Info Validating config: TargetNames=logfile, logconsole, ConfigItems=28 ConfigSection=NLog
+2024-06-23 20:09:56.5445 Info Configuration initialized.
+2024-06-23 22:38:51.8363 Info Registered target NLog.Targets.ConsoleTarget(Name=logconsole)
+2024-06-23 22:38:51.8660 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-06-23 22:39:04.0961 Info Registered target NLog.Targets.ConsoleTarget(Name=logconsole)
+2024-06-23 22:39:04.0961 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-06-23 22:39:04.1093 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.2.2526. Product version: 5.3.2+8d52d4f3fcdbd84beae3442e1fdc8125598ed81f. GlobalAssemblyCache: False
+2024-06-23 22:39:04.1093 Info Validating config: TargetNames=logfile, logconsole, ConfigItems=28 ConfigSection=NLog
+2024-06-23 22:39:04.1306 Info Configuration initialized.
+2024-06-23 22:39:04.1306 Info Closing old configuration.
+2024-06-23 22:39:04.1473 Info Validating config: TargetNames=logfile, logconsole, ConfigItems=28 ConfigSection=NLog
+2024-06-23 22:39:04.1473 Info Configuration initialized.
+2024-06-23 22:41:33.7421 Info Registered target NLog.Targets.ConsoleTarget(Name=logconsole)
+2024-06-23 22:41:33.7514 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-06-23 22:41:33.8282 Info Registered target NLog.Targets.ConsoleTarget(Name=logconsole)
+2024-06-23 22:41:33.8282 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-06-23 22:41:33.8282 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.2.2526. Product version: 5.3.2+8d52d4f3fcdbd84beae3442e1fdc8125598ed81f. GlobalAssemblyCache: False
+2024-06-23 22:41:33.8282 Info Validating config: TargetNames=logfile, logconsole, ConfigItems=28 ConfigSection=NLog
+2024-06-23 22:41:33.8515 Info Configuration initialized.
+2024-06-23 22:41:33.8515 Info Closing old configuration.
+2024-06-23 22:41:33.8612 Info Validating config: TargetNames=logfile, logconsole, ConfigItems=28 ConfigSection=NLog
+2024-06-23 22:41:33.8612 Info Configuration initialized.
+2024-06-23 22:45:05.0476 Info Registered target NLog.Targets.ConsoleTarget(Name=logconsole)
+2024-06-23 22:45:05.0768 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-06-23 22:45:05.1824 Info Registered target NLog.Targets.ConsoleTarget(Name=logconsole)
+2024-06-23 22:45:05.1824 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-06-23 22:45:05.1946 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.2.2526. Product version: 5.3.2+8d52d4f3fcdbd84beae3442e1fdc8125598ed81f. GlobalAssemblyCache: False
+2024-06-23 22:45:05.2082 Info Validating config: TargetNames=logfile, logconsole, ConfigItems=28 ConfigSection=NLog
+2024-06-23 22:45:05.2254 Info Configuration initialized.
+2024-06-23 22:45:05.2254 Info Closing old configuration.
+2024-06-23 22:45:05.2425 Info Validating config: TargetNames=logfile, logconsole, ConfigItems=28 ConfigSection=NLog
+2024-06-23 22:45:05.2425 Info Configuration initialized.
+2024-06-23 22:46:23.0119 Info Registered target NLog.Targets.ConsoleTarget(Name=logconsole)
+2024-06-23 22:46:23.0219 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-06-23 22:46:23.0940 Info Registered target NLog.Targets.ConsoleTarget(Name=logconsole)
+2024-06-23 22:46:23.0940 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-06-23 22:46:23.0940 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.2.2526. Product version: 5.3.2+8d52d4f3fcdbd84beae3442e1fdc8125598ed81f. GlobalAssemblyCache: False
+2024-06-23 22:46:23.0940 Info Validating config: TargetNames=logfile, logconsole, ConfigItems=28 ConfigSection=NLog
+2024-06-23 22:46:23.1169 Info Configuration initialized.
+2024-06-23 22:46:23.1169 Info Closing old configuration.
+2024-06-23 22:46:23.1263 Info Validating config: TargetNames=logfile, logconsole, ConfigItems=28 ConfigSection=NLog
+2024-06-23 22:46:23.1263 Info Configuration initialized.
+2024-06-23 22:51:04.9638 Info Registered target NLog.Targets.ConsoleTarget(Name=logconsole)
+2024-06-23 22:51:04.9730 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-06-23 22:51:05.0468 Info Registered target NLog.Targets.ConsoleTarget(Name=logconsole)
+2024-06-23 22:51:05.0468 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-06-23 22:51:05.0468 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.2.2526. Product version: 5.3.2+8d52d4f3fcdbd84beae3442e1fdc8125598ed81f. GlobalAssemblyCache: False
+2024-06-23 22:51:05.0468 Info Validating config: TargetNames=logfile, logconsole, ConfigItems=28 ConfigSection=NLog
+2024-06-23 22:51:05.0672 Info Configuration initialized.
+2024-06-23 22:51:05.0672 Info Closing old configuration.
+2024-06-23 22:51:05.0776 Info Validating config: TargetNames=logfile, logconsole, ConfigItems=28 ConfigSection=NLog
+2024-06-23 22:51:05.0776 Info Configuration initialized.
+2024-06-23 22:56:25.4883 Info Registered target NLog.Targets.ConsoleTarget(Name=logconsole)
+2024-06-23 22:56:25.5160 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-06-23 22:56:25.6004 Info Registered target NLog.Targets.ConsoleTarget(Name=logconsole)
+2024-06-23 22:56:25.6004 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-06-23 22:56:25.6121 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.2.2526. Product version: 5.3.2+8d52d4f3fcdbd84beae3442e1fdc8125598ed81f. GlobalAssemblyCache: False
+2024-06-23 22:56:25.6260 Info Validating config: TargetNames=logfile, logconsole, ConfigItems=28 ConfigSection=NLog
+2024-06-23 22:56:25.6376 Info Configuration initialized.
+2024-06-23 22:56:25.6376 Info Closing old configuration.
+2024-06-23 22:56:25.6579 Info Validating config: TargetNames=logfile, logconsole, ConfigItems=28 ConfigSection=NLog
+2024-06-23 22:56:25.6579 Info Configuration initialized.
+2024-06-23 22:57:02.1822 Info Registered target NLog.Targets.ConsoleTarget(Name=logconsole)
+2024-06-23 22:57:02.2093 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-06-23 22:57:02.2946 Info Registered target NLog.Targets.ConsoleTarget(Name=logconsole)
+2024-06-23 22:57:02.2946 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-06-23 22:57:02.2946 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.2.2526. Product version: 5.3.2+8d52d4f3fcdbd84beae3442e1fdc8125598ed81f. GlobalAssemblyCache: False
+2024-06-23 22:57:02.3205 Info Validating config: TargetNames=logfile, logconsole, ConfigItems=28 ConfigSection=NLog
+2024-06-23 22:57:02.3296 Info Configuration initialized.
+2024-06-23 22:57:02.3296 Info Closing old configuration.
+2024-06-23 22:57:02.3448 Info Validating config: TargetNames=logfile, logconsole, ConfigItems=28 ConfigSection=NLog
+2024-06-23 22:57:02.3448 Info Configuration initialized.
+2024-06-23 22:58:26.3898 Info Registered target NLog.Targets.ConsoleTarget(Name=logconsole)
+2024-06-23 22:58:26.4217 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-06-23 22:58:26.5005 Info Registered target NLog.Targets.ConsoleTarget(Name=logconsole)
+2024-06-23 22:58:26.5005 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-06-23 22:58:26.5005 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.2.2526. Product version: 5.3.2+8d52d4f3fcdbd84beae3442e1fdc8125598ed81f. GlobalAssemblyCache: False
+2024-06-23 22:58:26.5254 Info Validating config: TargetNames=logfile, logconsole, ConfigItems=28 ConfigSection=NLog
+2024-06-23 22:58:26.5356 Info Configuration initialized.
+2024-06-23 22:58:26.5356 Info Closing old configuration.
+2024-06-23 22:58:26.5505 Info Validating config: TargetNames=logfile, logconsole, ConfigItems=28 ConfigSection=NLog
+2024-06-23 22:58:26.5505 Info Configuration initialized.
+2024-06-23 23:01:04.2414 Info Registered target NLog.Targets.ConsoleTarget(Name=logconsole)
+2024-06-23 23:01:04.2687 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-06-23 23:01:04.3620 Info Registered target NLog.Targets.ConsoleTarget(Name=logconsole)
+2024-06-23 23:01:04.3620 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-06-23 23:01:04.3782 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.2.2526. Product version: 5.3.2+8d52d4f3fcdbd84beae3442e1fdc8125598ed81f. GlobalAssemblyCache: False
+2024-06-23 23:01:04.3926 Info Validating config: TargetNames=logfile, logconsole, ConfigItems=28 ConfigSection=NLog
+2024-06-23 23:01:04.4092 Info Configuration initialized.
+2024-06-23 23:01:04.4092 Info Closing old configuration.
+2024-06-23 23:01:04.4276 Info Validating config: TargetNames=logfile, logconsole, ConfigItems=28 ConfigSection=NLog
+2024-06-23 23:01:04.4276 Info Configuration initialized.
+2024-06-23 23:02:52.5577 Info Registered target NLog.Targets.ConsoleTarget(Name=logconsole)
+2024-06-23 23:02:52.5847 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-06-23 23:02:52.6688 Info Registered target NLog.Targets.ConsoleTarget(Name=logconsole)
+2024-06-23 23:02:52.6688 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-06-23 23:02:52.6688 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.2.2526. Product version: 5.3.2+8d52d4f3fcdbd84beae3442e1fdc8125598ed81f. GlobalAssemblyCache: False
+2024-06-23 23:02:52.6922 Info Validating config: TargetNames=logfile, logconsole, ConfigItems=28 ConfigSection=NLog
+2024-06-23 23:02:52.7019 Info Configuration initialized.
+2024-06-23 23:02:52.7019 Info Closing old configuration.
+2024-06-23 23:02:52.7179 Info Validating config: TargetNames=logfile, logconsole, ConfigItems=28 ConfigSection=NLog
+2024-06-23 23:02:52.7179 Info Configuration initialized.
+2024-06-23 23:28:27.1278 Info Registered target NLog.Targets.ConsoleTarget(Name=logconsole)
+2024-06-23 23:28:27.1371 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-06-23 23:28:27.2133 Info Registered target NLog.Targets.ConsoleTarget(Name=logconsole)
+2024-06-23 23:28:27.2133 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-06-23 23:28:27.2168 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.2.2526. Product version: 5.3.2+8d52d4f3fcdbd84beae3442e1fdc8125598ed81f. GlobalAssemblyCache: False
+2024-06-23 23:28:27.2168 Info Validating config: TargetNames=logfile, logconsole, ConfigItems=28 ConfigSection=NLog
+2024-06-23 23:28:27.2344 Info Configuration initialized.
+2024-06-23 23:28:27.2344 Info Closing old configuration.
+2024-06-23 23:28:27.2344 Info Validating config: TargetNames=logfile, logconsole, ConfigItems=28 ConfigSection=NLog
+2024-06-23 23:28:27.2344 Info Configuration initialized.
+2024-06-23 23:29:28.6917 Info Registered target NLog.Targets.ConsoleTarget(Name=logconsole)
+2024-06-23 23:29:28.7016 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-06-23 23:29:28.7740 Info Registered target NLog.Targets.ConsoleTarget(Name=logconsole)
+2024-06-23 23:29:28.7740 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-06-23 23:29:28.7740 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.2.2526. Product version: 5.3.2+8d52d4f3fcdbd84beae3442e1fdc8125598ed81f. GlobalAssemblyCache: False
+2024-06-23 23:29:28.7831 Info Validating config: TargetNames=logfile, logconsole, ConfigItems=28 ConfigSection=NLog
+2024-06-23 23:29:28.7973 Info Configuration initialized.
+2024-06-23 23:29:28.7973 Info Closing old configuration.
+2024-06-23 23:29:28.7973 Info Validating config: TargetNames=logfile, logconsole, ConfigItems=28 ConfigSection=NLog
+2024-06-23 23:29:28.8098 Info Configuration initialized.
+2024-06-23 23:30:43.3770 Info Registered target NLog.Targets.ConsoleTarget(Name=logconsole)
+2024-06-23 23:30:43.3877 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-06-23 23:30:43.5391 Info Registered target NLog.Targets.ConsoleTarget(Name=logconsole)
+2024-06-23 23:30:43.5391 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-06-23 23:30:43.5391 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.2.2526. Product version: 5.3.2+8d52d4f3fcdbd84beae3442e1fdc8125598ed81f. GlobalAssemblyCache: False
+2024-06-23 23:30:43.5480 Info Validating config: TargetNames=logfile, logconsole, ConfigItems=28 ConfigSection=NLog
+2024-06-23 23:30:43.5480 Info Configuration initialized.
+2024-06-23 23:30:43.5598 Info Closing old configuration.
+2024-06-23 23:30:43.5598 Info Validating config: TargetNames=logfile, logconsole, ConfigItems=28 ConfigSection=NLog
+2024-06-23 23:30:43.5598 Info Configuration initialized.
+2024-06-23 23:31:10.4106 Info Registered target NLog.Targets.ConsoleTarget(Name=logconsole)
+2024-06-23 23:31:10.4216 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-06-23 23:31:10.5118 Info Registered target NLog.Targets.ConsoleTarget(Name=logconsole)
+2024-06-23 23:31:10.5125 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-06-23 23:31:10.5125 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.2.2526. Product version: 5.3.2+8d52d4f3fcdbd84beae3442e1fdc8125598ed81f. GlobalAssemblyCache: False
+2024-06-23 23:31:10.5125 Info Validating config: TargetNames=logfile, logconsole, ConfigItems=28 ConfigSection=NLog
+2024-06-23 23:31:10.5352 Info Configuration initialized.
+2024-06-23 23:31:10.5352 Info Closing old configuration.
+2024-06-23 23:31:10.5450 Info Validating config: TargetNames=logfile, logconsole, ConfigItems=28 ConfigSection=NLog
+2024-06-23 23:31:10.5450 Info Configuration initialized.
+2024-06-23 23:39:47.4633 Info Registered target NLog.Targets.ConsoleTarget(Name=logconsole)
+2024-06-23 23:39:47.4751 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-06-23 23:39:47.5515 Info Registered target NLog.Targets.ConsoleTarget(Name=logconsole)
+2024-06-23 23:39:47.5515 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-06-23 23:39:47.5515 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.2.2526. Product version: 5.3.2+8d52d4f3fcdbd84beae3442e1fdc8125598ed81f. GlobalAssemblyCache: False
+2024-06-23 23:39:47.5608 Info Validating config: TargetNames=logfile, logconsole, ConfigItems=28 ConfigSection=NLog
+2024-06-23 23:39:47.5608 Info Configuration initialized.
+2024-06-23 23:39:47.5608 Info Closing old configuration.
+2024-06-23 23:39:47.5805 Info Validating config: TargetNames=logfile, logconsole, ConfigItems=28 ConfigSection=NLog
+2024-06-23 23:39:47.5805 Info Configuration initialized.
+2024-06-23 23:40:45.6275 Info Registered target NLog.Targets.ConsoleTarget(Name=logconsole)
+2024-06-23 23:40:45.6406 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-06-23 23:40:45.8084 Info Registered target NLog.Targets.ConsoleTarget(Name=logconsole)
+2024-06-23 23:40:45.8084 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-06-23 23:40:45.8117 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.2.2526. Product version: 5.3.2+8d52d4f3fcdbd84beae3442e1fdc8125598ed81f. GlobalAssemblyCache: False
+2024-06-23 23:40:45.8117 Info Validating config: TargetNames=logfile, logconsole, ConfigItems=28 ConfigSection=NLog
+2024-06-23 23:40:45.8263 Info Configuration initialized.
+2024-06-23 23:40:45.8263 Info Closing old configuration.
+2024-06-23 23:40:45.8263 Info Validating config: TargetNames=logfile, logconsole, ConfigItems=28 ConfigSection=NLog
+2024-06-23 23:40:45.8263 Info Configuration initialized.
+2024-06-23 23:42:21.8678 Info Registered target NLog.Targets.ConsoleTarget(Name=logconsole)
+2024-06-23 23:42:21.8801 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-06-23 23:42:21.9479 Info Registered target NLog.Targets.ConsoleTarget(Name=logconsole)
+2024-06-23 23:42:21.9479 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-06-23 23:42:21.9514 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.2.2526. Product version: 5.3.2+8d52d4f3fcdbd84beae3442e1fdc8125598ed81f. GlobalAssemblyCache: False
+2024-06-23 23:42:21.9514 Info Validating config: TargetNames=logfile, logconsole, ConfigItems=28 ConfigSection=NLog
+2024-06-23 23:42:21.9735 Info Configuration initialized.
+2024-06-23 23:42:21.9735 Info Closing old configuration.
+2024-06-23 23:42:21.9837 Info Validating config: TargetNames=logfile, logconsole, ConfigItems=28 ConfigSection=NLog
+2024-06-23 23:42:21.9837 Info Configuration initialized.
+2024-06-23 23:42:53.1388 Info Registered target NLog.Targets.ConsoleTarget(Name=logconsole)
+2024-06-23 23:42:53.1388 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-06-23 23:42:53.2973 Info Registered target NLog.Targets.ConsoleTarget(Name=logconsole)
+2024-06-23 23:42:53.2973 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-06-23 23:42:53.2973 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.2.2526. Product version: 5.3.2+8d52d4f3fcdbd84beae3442e1fdc8125598ed81f. GlobalAssemblyCache: False
+2024-06-23 23:42:53.2973 Info Validating config: TargetNames=logfile, logconsole, ConfigItems=28 ConfigSection=NLog
+2024-06-23 23:42:53.3167 Info Configuration initialized.
+2024-06-23 23:42:53.3167 Info Closing old configuration.
+2024-06-23 23:42:53.3253 Info Validating config: TargetNames=logfile, logconsole, ConfigItems=28 ConfigSection=NLog
+2024-06-23 23:42:53.3253 Info Configuration initialized.
+2024-06-23 23:46:49.7220 Info Registered target NLog.Targets.ConsoleTarget(Name=logconsole)
+2024-06-23 23:46:49.7353 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-06-23 23:46:49.7986 Info Registered target NLog.Targets.ConsoleTarget(Name=logconsole)
+2024-06-23 23:46:49.7986 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2024-06-23 23:46:49.7986 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.3.2.2526. Product version: 5.3.2+8d52d4f3fcdbd84beae3442e1fdc8125598ed81f. GlobalAssemblyCache: False
+2024-06-23 23:46:49.7986 Info Validating config: TargetNames=logfile, logconsole, ConfigItems=28 ConfigSection=NLog
+2024-06-23 23:46:49.8213 Info Configuration initialized.
+2024-06-23 23:46:49.8213 Info Closing old configuration.
+2024-06-23 23:46:49.8315 Info Validating config: TargetNames=logfile, logconsole, ConfigItems=28 ConfigSection=NLog
+2024-06-23 23:46:49.8315 Info Configuration initialized.
