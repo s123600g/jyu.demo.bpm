@@ -13,8 +13,9 @@ public interface ICamundaEngineClient
         string argProcessInstanceId
     );
 
-    public string CompleteProcessCurrentTaskAsync(
+    public Task<CompleteTaskRs> CompleteTaskAsync(
         string argProcessInstanceTaskId
+        , CompleteTaskRq argCompleteTaskRq
     );
 
     public Task<List<QueryExternalTaskRs>> QueryExternalTaskAsync();

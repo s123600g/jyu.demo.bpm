@@ -20,10 +20,14 @@ public class CamundaEngineClient : ICamundaEngineClient
         , IOptions<CamundaConfigOptions> argCamundaConfigOptions
     )
     {
+        _httpClientFactory = argHttpClientFactory
+                             ?? throw new ArgumentNullException(
+                                 nameof(argHttpClientFactory)
+                             );
+
         _camundaConfigOptions = argCamundaConfigOptions.Value;
 
         _camundaEngineBassAddress = GenCamundaEngineRootUrlPath();
-        _httpClientFactory = argHttpClientFactory;
     }
 
     /// <summary>
@@ -39,8 +43,10 @@ public class CamundaEngineClient : ICamundaEngineClient
     {
         string path = $"process-definition/key/{argProcessDefinitionKey}/start";
 
-        HttpResponseMessage httpRs =
-            await HttpPostAsJsonAsync(argPath: path, argRequestBody: argStartNewProcessInstanceRq);
+        HttpResponseMessage httpRs = await HttpPostAsJsonAsync(
+            argPath: path
+            , argRequestBody: argStartNewProcessInstanceRq
+        );
 
         StartProcessInstanceRs? resContent = await httpRs.Content.ReadFromJsonAsync<StartProcessInstanceRs>();
 
@@ -77,13 +83,30 @@ public class CamundaEngineClient : ICamundaEngineClient
         return result;
     }
 
-    public string CompleteProcessCurrentTaskAsync(
+    public async Task<CompleteTaskRs> CompleteTaskAsync(
         string argProcessInstanceTaskId
+        , CompleteTaskRq argCompleteTaskRq
     )
     {
         string path = $"task/{argProcessInstanceTaskId}/complete";
 
-        throw new NotImplementedException();
+        HttpResponseMessage httpRs = await HttpPostAsJsonAsync(
+            argPath: path
+            , argRequestBody: argCompleteTaskRq
+        );
+
+        var resContent = await httpRs.Content.ReadFromJsonAsync<Dictionary<string, CompleteProcessCurrentTaskVariableDetail>>();
+
+        CompleteTaskRs result = new CompleteTaskRs();
+
+        if (
+            resContent != null
+        )
+        {
+            result.Variables = resContent;
+        }
+
+        return result;
     }
 
     /// <summary>
@@ -98,8 +121,8 @@ public class CamundaEngineClient : ICamundaEngineClient
             argPath: path
         );
 
-        List<QueryExternalTaskRs> result =
-            await httpRs.Content.ReadFromJsonAsync<List<QueryExternalTaskRs>>() ?? new List<QueryExternalTaskRs>();
+        List<QueryExternalTaskRs> result = await httpRs.Content.ReadFromJsonAsync<List<QueryExternalTaskRs>>()
+                                           ?? new List<QueryExternalTaskRs>();
 
         return result;
     }
@@ -126,7 +149,9 @@ public class CamundaEngineClient : ICamundaEngineClient
 
         HttpResponseMessage httpRs = await client.GetAsync(requestUri: path);
 
-        if (!httpRs.IsSuccessStatusCode)
+        if (
+            !httpRs.IsSuccessStatusCode
+        )
         {
             throw new CamundaApiFailException();
         }
