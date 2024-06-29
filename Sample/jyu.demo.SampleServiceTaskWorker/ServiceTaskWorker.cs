@@ -1,21 +1,21 @@
-namespace jyu.demo.SampleServiceTaskWorker;
+using jyu.demo.BpmDomain;
+using jyu.demo.BpmDomain.SampleServiceTask.Enum;
+using jyu.demo.BpmDomain.SampleServiceTask.Models;
+using jyu.demo.BPMN.Camunda.Models.CamundaEngineProcessClient;
+using jyu.demo.BPMN.Camunda.Services;
+using jyu.demo.Common.Extension;
+using Microsoft.Extensions.Options;
 
-using BpmDomain;
-using BpmDomain.SampleServiceTask.Enum;
-using BPMN.Camunda.Models.CamundaEngineProcessClient;
-using BPMN.Camunda.Services.BpmEngingClient;
-using Common.Extension;
+namespace jyu.demo.SampleServiceTaskWorker;
 
 public class ServiceTaskWorker : BackgroundService
 {
     private readonly ILogger<ServiceTaskWorker> _log;
-    private readonly ICamundaEngineClient _camundaEngineClient;
-    private readonly IServiceTaskWorkFactory _serviceTaskWorkFactory;
+    private readonly IServiceProvider _serviceProvider;
 
     public ServiceTaskWorker(
         ILogger<ServiceTaskWorker> logger
-        , ICamundaEngineClient camundaEngineClient
-        , IServiceTaskWorkFactory serviceTaskWorkFactory
+        , IServiceProvider serviceProvider
     )
     {
         _log = logger
@@ -23,53 +23,48 @@ public class ServiceTaskWorker : BackgroundService
                    nameof(logger)
                );
 
-        _camundaEngineClient = camundaEngineClient
-                               ?? throw new ArgumentNullException(
-                                   nameof(camundaEngineClient)
-                               );
-
-        _serviceTaskWorkFactory = serviceTaskWorkFactory
-                                  ?? throw new ArgumentNullException(
-                                      nameof(serviceTaskWorkFactory)
-                                  );
+        _serviceProvider = serviceProvider
+                           ?? throw new ArgumentNullException(
+                               nameof(serviceProvider)
+                           );
     }
 
     protected override async Task ExecuteAsync(
         CancellationToken stoppingToken
     )
     {
-        while (
-            !stoppingToken.IsCancellationRequested
+        using (
+            var scope = _serviceProvider.CreateScope()
         )
         {
-            _log.LogInformation("ServiceTaskWorker running at: {time}", DateTimeOffset.Now);
+            ICamundaEngineClient camundaEngineClient = scope.ServiceProvider.GetRequiredService<ICamundaEngineClient>();
+            IServiceTaskWorkFactory serviceTaskWorkFactory =
+                scope.ServiceProvider.GetRequiredService<IServiceTaskWorkFactory>();
 
-            List<QueryExternalTaskRs> externalTasks = await GetNolockExternalTasks();
+            while (
+                !stoppingToken.IsCancellationRequested
+            )
+            {
+                // _log.LogInformation("ServiceTaskWorker running at: {time}", DateTimeOffset.Now);
 
-            Task.WaitAll(
-                ExectueServiceTaskWork(
-                    sampleServiceTaskTopicName: SampleServiceTaskTopicName.ServiceTask1
-                    , serviceTasks: externalTasks
-                )
-                , ExectueServiceTaskWork(
-                    sampleServiceTaskTopicName: SampleServiceTaskTopicName.ServiceTask2
-                    , serviceTasks: externalTasks
-                )
-            );
+                List<QueryExternalTaskRs> externalTasks = await camundaEngineClient.QueryExternalTaskAsync();
 
-            await Task.Delay(5000, stoppingToken);
+                await Task.WhenAll(
+                    ExectueServiceTaskWork(
+                        sampleServiceTaskTopicName: SampleServiceTaskTopicName.ServiceTask1
+                        , serviceTasks: externalTasks
+                        , serviceTaskWorkFactory: serviceTaskWorkFactory
+                    )
+                    , ExectueServiceTaskWork(
+                        sampleServiceTaskTopicName: SampleServiceTaskTopicName.ServiceTask2
+                        , serviceTasks: externalTasks
+                        , serviceTaskWorkFactory: serviceTaskWorkFactory
+                    )
+                );
+
+                await Task.Delay(3000, stoppingToken);
+            }
         }
-    }
-
-    /// <summary>
-    /// 取得當前External Task清單
-    /// </summary>
-    /// <returns></returns>
-    private async Task<List<QueryExternalTaskRs>> GetNolockExternalTasks()
-    {
-        List<QueryExternalTaskRs> result = await _camundaEngineClient.QueryExternalTaskAsync();
-
-        return result;
     }
 
     /// <summary>
@@ -80,28 +75,20 @@ public class ServiceTaskWorker : BackgroundService
     private async Task ExectueServiceTaskWork(
         SampleServiceTaskTopicName sampleServiceTaskTopicName
         , List<QueryExternalTaskRs> serviceTasks
+        , IServiceTaskWorkFactory serviceTaskWorkFactory
     )
     {
         string topicName = sampleServiceTaskTopicName.GetEnumMemberAttributeValue();
 
         List<QueryExternalTaskRs> waitExecuteServiceTasks = serviceTasks.Where(item =>
-            item.WorkerId == topicName
+            item.TopicName == topicName
         ).ToList();
 
         int count = waitExecuteServiceTasks.Count;
 
         if (
-            count == 0
+            count != 0
         )
-        {
-            _log.LogInformation(
-                "[{TopicName}]當前無需執行Service Task。"
-                , topicName
-            );
-
-            return;
-        }
-        else
         {
             _log.LogInformation(
                 "[{TopicName}]當前有需執行Service Task，待處理筆數{Count}。"
@@ -115,17 +102,21 @@ public class ServiceTaskWorker : BackgroundService
         )
         {
             _log.LogInformation(
-                "Service Task Id：{Id}({WorkId}), 執行鎖定和指派對應Work服務：{WorkName}"
+                "Service Task Id：{Id}, 執行鎖定和指派對應Work服務：{WorkName}"
                 , item.ExternalTaskId
-                , item.WorkerId
                 , topicName
             );
 
-            var serviceInstance = _serviceTaskWorkFactory.GetServiceInstance(
-                serviceTaskTopicName: SampleServiceTaskTopicName.ServiceTask1.GetEnumMemberAttributeValue()
+            var serviceInstance = serviceTaskWorkFactory.GetServiceInstance(
+                serviceTaskTopicName: sampleServiceTaskTopicName.GetEnumMemberAttributeValue()
             );
 
-            await serviceInstance.Execute();
+            await serviceInstance.ExecuteAsync(
+                argServiceTaskWorkData: new ServiceTaskWorkData
+                {
+                    ExternalTaskId = item.ExternalTaskId
+                }
+            );
         }
     }
 }

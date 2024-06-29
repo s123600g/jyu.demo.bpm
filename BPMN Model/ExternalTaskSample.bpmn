@@ -5,12 +5,12 @@
       <bpmn:outgoing>Flow_1jrkh9x</bpmn:outgoing>
     </bpmn:startEvent>
     <bpmn:sequenceFlow id="Flow_1jrkh9x" sourceRef="StartEvent_1" targetRef="Activity_12fnpfb" />
-    <bpmn:serviceTask id="Activity_12fnpfb" name="ServiceTask1" camunda:type="external" camunda:topic="SampleTask1">
+    <bpmn:serviceTask id="Activity_12fnpfb" name="ServiceTask1" camunda:type="external" camunda:topic="ServiceTask1">
       <bpmn:incoming>Flow_1jrkh9x</bpmn:incoming>
       <bpmn:outgoing>Flow_1lhacl3</bpmn:outgoing>
     </bpmn:serviceTask>
     <bpmn:sequenceFlow id="Flow_1lhacl3" sourceRef="Activity_12fnpfb" targetRef="Activity_18vducz" />
-    <bpmn:serviceTask id="Activity_18vducz" name="ServiceTask2" camunda:type="external" camunda:topic="SampleTask2">
+    <bpmn:serviceTask id="Activity_18vducz" name="ServiceTask2" camunda:type="external" camunda:topic="ServiceTask2">
       <bpmn:incoming>Flow_1lhacl3</bpmn:incoming>
       <bpmn:outgoing>Flow_1dbg3sq</bpmn:outgoing>
     </bpmn:serviceTask>
