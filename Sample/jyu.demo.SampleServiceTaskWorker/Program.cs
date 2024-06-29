@@ -1,10 +1,9 @@
 namespace jyu.demo.SampleServiceTaskWorker;
 
 using System.Reflection;
-using BpmDomain;
+using WorkerDomain;
 using Camunda.Models;
 using NLog.Extensions.Logging;
-using Services;
 
 public class Program
 {

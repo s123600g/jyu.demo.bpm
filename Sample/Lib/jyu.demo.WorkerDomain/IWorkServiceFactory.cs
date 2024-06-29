@@ -1,6 +1,4 @@
-namespace jyu.demo.BpmDomain;
-
-using SampleServiceTaskWorker.Services;
+namespace jyu.demo.WorkerDomain;
 
 public interface IWorkServiceFactory
 {

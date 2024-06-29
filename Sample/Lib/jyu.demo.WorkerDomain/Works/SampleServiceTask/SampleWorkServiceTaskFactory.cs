@@ -1,10 +1,9 @@
 using System.Reflection;
-using jyu.demo.BpmDomain.Works.SampleServiceTask.Attributes;
 using jyu.demo.Common.Extension;
-using jyu.demo.SampleServiceTaskWorker.Services;
+using jyu.demo.WorkerDomain.Works.SampleServiceTask.Attributes;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace jyu.demo.BpmDomain.Works.SampleServiceTask;
+namespace jyu.demo.WorkerDomain.Works.SampleServiceTask;
 
 public class SampleWorkServiceTaskFactory : IWorkServiceFactory
 {

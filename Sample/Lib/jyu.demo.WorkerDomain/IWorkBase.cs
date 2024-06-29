@@ -1,6 +1,6 @@
-using jyu.demo.BpmDomain.Models;
+using jyu.demo.WorkerDomain.Models;
 
-namespace jyu.demo.SampleServiceTaskWorker.Services;
+namespace jyu.demo.WorkerDomain;
 
 public interface IWorkBase
 {

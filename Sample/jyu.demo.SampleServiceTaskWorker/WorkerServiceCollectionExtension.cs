@@ -1,9 +1,8 @@
 ﻿using System.Reflection;
-using jyu.demo.BpmDomain;
-using jyu.demo.BpmDomain.Works.SampleServiceTask;
-using jyu.demo.BpmDomain.Works.SampleServiceTask.Attributes;
+using jyu.demo.WorkerDomain;
+using jyu.demo.WorkerDomain.Works.SampleServiceTask;
+using jyu.demo.WorkerDomain.Works.SampleServiceTask.Attributes;
 using jyu.demo.Camunda.Services;
-using jyu.demo.SampleServiceTaskWorker.Services;
 
 namespace jyu.demo.SampleServiceTaskWorker;
 

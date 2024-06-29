@@ -1,11 +1,10 @@
-using jyu.demo.BpmDomain.Models;
-using jyu.demo.BpmDomain.Works.SampleServiceTask.Attributes;
 using jyu.demo.Camunda.Models.CamundaEngineClient;
 using jyu.demo.Camunda.Services;
 using jyu.demo.Common.Extension;
-using jyu.demo.SampleServiceTaskWorker.Services;
+using jyu.demo.WorkerDomain.Models;
+using jyu.demo.WorkerDomain.Works.SampleServiceTask.Attributes;
 
-namespace jyu.demo.BpmDomain.Works.SampleServiceTask.ServiceTask1;
+namespace jyu.demo.WorkerDomain.Works.SampleServiceTask.ServiceTask1;
 
 [SampleServiceTask(SampleServiceTaskTopicName.ServiceTask1)]
 public class ServiceTask1WorkBase : IWorkBase

@@ -1,6 +1,6 @@
-using jyu.demo.BpmDomain;
-using jyu.demo.BpmDomain.Models;
-using jyu.demo.BpmDomain.Works.SampleServiceTask.Enum;
+using jyu.demo.WorkerDomain;
+using jyu.demo.WorkerDomain.Models;
+using jyu.demo.WorkerDomain.Works.SampleServiceTask.Enum;
 using jyu.demo.Camunda.Models.CamundaEngineClient;
 using jyu.demo.Camunda.Services;
 using jyu.demo.Common.Extension;

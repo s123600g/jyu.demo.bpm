@@ -1,6 +1,6 @@
 using System.Runtime.Serialization;
 
-namespace jyu.demo.BpmDomain.Works.SampleServiceTask;
+namespace jyu.demo.WorkerDomain.Works.SampleServiceTask;
 
 public enum SampleServiceTaskTopicName
 {

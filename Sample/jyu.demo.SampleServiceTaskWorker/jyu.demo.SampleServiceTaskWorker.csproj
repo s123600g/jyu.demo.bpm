@@ -17,7 +17,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Lib\jyu.demo.BpmDomain\jyu.demo.BpmDomain.csproj" />
+      <ProjectReference Include="..\Lib\jyu.demo.WorkerDomain\jyu.demo.WorkerDomain.csproj" />
       <ProjectReference Include="..\Lib\jyu.demo.Camunda\jyu.demo.Camunda.csproj" />
     </ItemGroup>
 

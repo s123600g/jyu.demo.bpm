@@ -1,4 +1,4 @@
-﻿namespace jyu.demo.BpmDomain.Models;
+﻿namespace jyu.demo.WorkerDomain.Models;
 
 public class ServiceTaskWorkData
 {
