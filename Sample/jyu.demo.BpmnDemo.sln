@@ -4,7 +4,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{76B7D574-5D3
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "jyu.demo.Common", "Lib\jyu.demo.Common\jyu.demo.Common.csproj", "{A71B62B5-4963-4955-A7C4-4ACCF097A261}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "jyu.demo.BPMN.Camunda", "Lib\jyu.demo.BPMN.Camunda\jyu.demo.BPMN.Camunda.csproj", "{2476E9A5-F908-4F5C-9B15-475D8CFA443F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "jyu.demo.Camunda", "Lib\jyu.demo.Camunda\jyu.demo.Camunda.csproj", "{2476E9A5-F908-4F5C-9B15-475D8CFA443F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "jyu.demo.BpmDomain", "Lib\jyu.demo.BpmDomain\jyu.demo.BpmDomain.csproj", "{1D661AFD-55CE-4DED-ABC6-D45D5AE2730C}"
 EndProject

@@ -1,6 +1,6 @@
 using System.Text;
 
-namespace jyu.demo.BPMN.Camunda.Models;
+namespace jyu.demo.Camunda.Models;
 
 public class CamundaConfigOptions
 {

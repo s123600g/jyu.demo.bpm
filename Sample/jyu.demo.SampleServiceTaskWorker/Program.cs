@@ -2,7 +2,7 @@ namespace jyu.demo.SampleServiceTaskWorker;
 
 using System.Reflection;
 using BpmDomain;
-using BPMN.Camunda.Models;
+using Camunda.Models;
 using NLog.Extensions.Logging;
 using Services;
 

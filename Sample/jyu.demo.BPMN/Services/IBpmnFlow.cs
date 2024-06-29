@@ -1,4 +1,4 @@
-using jyu.demo.BPMN.Camunda.Models.CamundaEngineProcessClient;
+using jyu.demo.Camunda.Models.CamundaEngineClient;
 
 namespace jyu.demo.BPMN.Services;
 

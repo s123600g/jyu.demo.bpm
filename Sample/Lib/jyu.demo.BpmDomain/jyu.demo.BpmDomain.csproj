@@ -12,7 +12,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\jyu.demo.BPMN.Camunda\jyu.demo.BPMN.Camunda.csproj" />
+      <ProjectReference Include="..\jyu.demo.Camunda\jyu.demo.Camunda.csproj" />
       <ProjectReference Include="..\jyu.demo.Common\jyu.demo.Common.csproj" />
     </ItemGroup>
 

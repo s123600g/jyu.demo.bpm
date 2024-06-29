@@ -1,12 +1,12 @@
 using System.Net.Http.Json;
 using System.Text;
-using jyu.demo.BPMN.Camunda.Exceptions;
-using jyu.demo.BPMN.Camunda.Models;
-using jyu.demo.BPMN.Camunda.Models.CamundaEngineProcessClient;
+using jyu.demo.Camunda.Exceptions;
+using jyu.demo.Camunda.Models;
+using jyu.demo.Camunda.Models.CamundaEngineClient;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Options;
 
-namespace jyu.demo.BPMN.Camunda.Services;
+namespace jyu.demo.Camunda.Services;
 
 public class CamundaEngineClient : ICamundaEngineClient
 {

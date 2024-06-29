@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
 
-namespace jyu.demo.BPMN.Camunda.Models.CamundaEngineProcessClient;
+namespace jyu.demo.Camunda.Models.CamundaEngineClient;
 
 public class StartProcessInstanceRs
 {

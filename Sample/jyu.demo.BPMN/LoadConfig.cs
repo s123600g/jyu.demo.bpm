@@ -1,5 +1,5 @@
-using jyu.demo.BPMN.Camunda.Models;
-using jyu.demo.BPMN.Camunda.Services;
+using jyu.demo.Camunda.Models;
+using jyu.demo.Camunda.Services;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using NLog;

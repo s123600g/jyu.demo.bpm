@@ -1,6 +1,6 @@
-using jyu.demo.BPMN.Camunda.Models.CamundaEngineProcessClient;
+using jyu.demo.Camunda.Models.CamundaEngineClient;
 
-namespace jyu.demo.BPMN.Camunda.Services;
+namespace jyu.demo.Camunda.Services;
 
 public interface ICamundaEngineClient
 {

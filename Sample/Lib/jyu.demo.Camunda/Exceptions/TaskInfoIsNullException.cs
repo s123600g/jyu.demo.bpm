@@ -1,4 +1,4 @@
-namespace jyu.demo.BPMN.Camunda.Exceptions;
+namespace jyu.demo.Camunda.Exceptions;
 
 public class TaskInfoIsNullException : Exception
 {

@@ -1,8 +1,8 @@
 using jyu.demo.BpmDomain;
 using jyu.demo.BpmDomain.Models;
 using jyu.demo.BpmDomain.Works.SampleServiceTask.Enum;
-using jyu.demo.BPMN.Camunda.Models.CamundaEngineProcessClient;
-using jyu.demo.BPMN.Camunda.Services;
+using jyu.demo.Camunda.Models.CamundaEngineClient;
+using jyu.demo.Camunda.Services;
 using jyu.demo.Common.Extension;
 using Microsoft.Extensions.Options;
 

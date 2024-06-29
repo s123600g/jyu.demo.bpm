@@ -1,6 +1,6 @@
-using jyu.demo.BPMN.Camunda.Exceptions;
-using jyu.demo.BPMN.Camunda.Models.CamundaEngineProcessClient;
-using jyu.demo.BPMN.Camunda.Services;
+using jyu.demo.Camunda.Exceptions;
+using jyu.demo.Camunda.Models.CamundaEngineClient;
+using jyu.demo.Camunda.Services;
 using NLog;
 
 namespace jyu.demo.BPMN.Services;

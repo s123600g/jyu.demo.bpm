@@ -2,12 +2,12 @@
 using jyu.demo.BpmDomain;
 using jyu.demo.BpmDomain.Works.SampleServiceTask;
 using jyu.demo.BpmDomain.Works.SampleServiceTask.Attributes;
-using jyu.demo.BPMN.Camunda.Services;
+using jyu.demo.Camunda.Services;
 using jyu.demo.SampleServiceTaskWorker.Services;
 
 namespace jyu.demo.SampleServiceTaskWorker;
 
-public static class BackendServiceCollectionExtension
+public static class WorkerServiceCollectionExtension
 {
     public static IServiceCollection AddWorkerRelatedServices(
         this IServiceCollection services

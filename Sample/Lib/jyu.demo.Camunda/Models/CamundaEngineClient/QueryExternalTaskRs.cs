@@ -1,6 +1,6 @@
-namespace jyu.demo.BPMN.Camunda.Models.CamundaEngineProcessClient;
-
 using System.Text.Json.Serialization;
+
+namespace jyu.demo.Camunda.Models.CamundaEngineClient;
 
 public class QueryExternalTaskRs
 {
