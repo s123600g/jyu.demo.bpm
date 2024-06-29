@@ -20,4 +20,6 @@
       <ProjectReference Include="..\Lib\jyu.demo.BpmDomain\jyu.demo.BpmDomain.csproj" />
       <ProjectReference Include="..\Lib\jyu.demo.BPMN.Camunda\jyu.demo.BPMN.Camunda.csproj" />
     </ItemGroup>
+
+
 </Project>
