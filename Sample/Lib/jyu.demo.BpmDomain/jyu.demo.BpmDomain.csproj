@@ -16,4 +16,8 @@
       <ProjectReference Include="..\jyu.demo.Common\jyu.demo.Common.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Works\" />
+    </ItemGroup>
+
 </Project>

@@ -2,9 +2,9 @@ namespace jyu.demo.BpmDomain;
 
 using SampleServiceTaskWorker.Services;
 
-public interface IServiceTaskWorkFactory
+public interface IWorkServiceFactory
 {
-    IServiceTaskWork GetServiceInstance(
+    IWorkBase GetServiceInstance(
         string serviceTaskTopicName
     );
 }

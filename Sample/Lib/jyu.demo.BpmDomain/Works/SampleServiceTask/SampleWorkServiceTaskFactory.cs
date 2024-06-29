@@ -1,16 +1,16 @@
-namespace jyu.demo.BpmDomain.SampleServiceTask;
-
 using System.Reflection;
-using SampleServiceTaskWorker.Services;
-using Common.Extension;
+using jyu.demo.BpmDomain.Works.SampleServiceTask.Attributes;
+using jyu.demo.Common.Extension;
+using jyu.demo.SampleServiceTaskWorker.Services;
 using Microsoft.Extensions.DependencyInjection;
-using ServiceTaskAttribute;
 
-public class SampleServiceTaskFactory : IServiceTaskWorkFactory
+namespace jyu.demo.BpmDomain.Works.SampleServiceTask;
+
+public class SampleWorkServiceTaskFactory : IWorkServiceFactory
 {
     private readonly IServiceProvider _serviceProvider;
 
-    public SampleServiceTaskFactory(
+    public SampleWorkServiceTaskFactory(
         IServiceProvider serviceProvider
     )
     {
@@ -20,17 +20,18 @@ public class SampleServiceTaskFactory : IServiceTaskWorkFactory
                            );
     }
 
-    public IServiceTaskWork GetServiceInstance(
+    public IWorkBase GetServiceInstance(
         string serviceTaskTopicName
     )
     {
         SampleServiceTaskTopicName topicName = serviceTaskTopicName.ConvertStrToEnum<SampleServiceTaskTopicName>();
 
-        IEnumerable<IServiceTaskWork> services = _serviceProvider.GetServices<IServiceTaskWork>();
+        IEnumerable<IWorkBase> services = _serviceProvider.GetServices<IWorkBase>();
 
         var serviceInstance = services.FirstOrDefault(item =>
             (
-                item.GetType().GetCustomAttributes<SampleServiceTaskAttribute>().FirstOrDefault() as SampleServiceTaskAttribute
+                item.GetType().GetCustomAttributes<SampleServiceTaskAttribute>().FirstOrDefault() as
+                    SampleServiceTaskAttribute
             )?.TopicName == topicName
         ) ?? throw new ArgumentNullException(serviceTaskTopicName);
 

@@ -1,4 +1,4 @@
-namespace jyu.demo.BpmDomain.SampleServiceTask.ServiceTaskAttribute;
+namespace jyu.demo.BpmDomain.Works.SampleServiceTask.Attributes;
 
 [AttributeUsage(AttributeTargets.Class)]
 public class SampleServiceTaskAttribute : Attribute

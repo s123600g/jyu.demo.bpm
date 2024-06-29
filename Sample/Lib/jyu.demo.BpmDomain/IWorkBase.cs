@@ -1,8 +1,8 @@
-using jyu.demo.BpmDomain.SampleServiceTask.Models;
+using jyu.demo.BpmDomain.Models;
 
 namespace jyu.demo.SampleServiceTaskWorker.Services;
 
-public interface IServiceTaskWork
+public interface IWorkBase
 {
     /// <summary>
     /// 執行Work內容

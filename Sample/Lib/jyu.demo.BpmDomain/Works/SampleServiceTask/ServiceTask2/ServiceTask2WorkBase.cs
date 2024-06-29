@@ -1,20 +1,20 @@
-using jyu.demo.BpmDomain.SampleServiceTask.Models;
-using jyu.demo.BpmDomain.SampleServiceTask.ServiceTaskAttribute;
+using jyu.demo.BpmDomain.Models;
+using jyu.demo.BpmDomain.Works.SampleServiceTask.Attributes;
 using jyu.demo.BPMN.Camunda.Models.CamundaEngineProcessClient;
 using jyu.demo.BPMN.Camunda.Services;
 using jyu.demo.Common.Extension;
 using jyu.demo.SampleServiceTaskWorker.Services;
 
-namespace jyu.demo.BpmDomain.SampleServiceTask.ServiceTask1;
+namespace jyu.demo.BpmDomain.Works.SampleServiceTask.ServiceTask2;
 
-[SampleServiceTask(SampleServiceTaskTopicName.ServiceTask1)]
-public class ServiceTask1Work : IServiceTaskWork
+[SampleServiceTask(SampleServiceTaskTopicName.ServiceTask2)]
+public class ServiceTask2WorkBase : IWorkBase
 {
     private readonly ICamundaEngineClient _camundaEngineClient;
     private readonly string _workerId;
     private readonly int _lockDuration;
 
-    public ServiceTask1Work(
+    public ServiceTask2WorkBase(
         ICamundaEngineClient camundaEngineClient
     )
     {
@@ -23,8 +23,8 @@ public class ServiceTask1Work : IServiceTaskWork
                                    nameof(camundaEngineClient)
                                );
 
-        _workerId = SampleServiceTaskTopicName.ServiceTask1.GetEnumMemberAttributeValue();
-        
+        _workerId = SampleServiceTaskTopicName.ServiceTask2.GetEnumMemberAttributeValue();
+
         _lockDuration = 100000;
     }
 

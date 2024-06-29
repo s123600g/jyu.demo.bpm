@@ -1,6 +1,6 @@
 using jyu.demo.BpmDomain;
-using jyu.demo.BpmDomain.SampleServiceTask.Enum;
-using jyu.demo.BpmDomain.SampleServiceTask.Models;
+using jyu.demo.BpmDomain.Models;
+using jyu.demo.BpmDomain.Works.SampleServiceTask.Enum;
 using jyu.demo.BPMN.Camunda.Models.CamundaEngineProcessClient;
 using jyu.demo.BPMN.Camunda.Services;
 using jyu.demo.Common.Extension;
@@ -38,8 +38,8 @@ public class ServiceTaskWorker : BackgroundService
         )
         {
             ICamundaEngineClient camundaEngineClient = scope.ServiceProvider.GetRequiredService<ICamundaEngineClient>();
-            IServiceTaskWorkFactory serviceTaskWorkFactory =
-                scope.ServiceProvider.GetRequiredService<IServiceTaskWorkFactory>();
+            IWorkServiceFactory workServiceFactory =
+                scope.ServiceProvider.GetRequiredService<IWorkServiceFactory>();
 
             while (
                 !stoppingToken.IsCancellationRequested
@@ -53,12 +53,12 @@ public class ServiceTaskWorker : BackgroundService
                     ExectueServiceTaskWork(
                         sampleServiceTaskTopicName: SampleServiceTaskTopicName.ServiceTask1
                         , serviceTasks: externalTasks
-                        , serviceTaskWorkFactory: serviceTaskWorkFactory
+                        , workServiceFactory: workServiceFactory
                     )
                     , ExectueServiceTaskWork(
                         sampleServiceTaskTopicName: SampleServiceTaskTopicName.ServiceTask2
                         , serviceTasks: externalTasks
-                        , serviceTaskWorkFactory: serviceTaskWorkFactory
+                        , workServiceFactory: workServiceFactory
                     )
                 );
 
@@ -75,7 +75,7 @@ public class ServiceTaskWorker : BackgroundService
     private async Task ExectueServiceTaskWork(
         SampleServiceTaskTopicName sampleServiceTaskTopicName
         , List<QueryExternalTaskRs> serviceTasks
-        , IServiceTaskWorkFactory serviceTaskWorkFactory
+        , IWorkServiceFactory workServiceFactory
     )
     {
         string topicName = sampleServiceTaskTopicName.GetEnumMemberAttributeValue();
@@ -107,7 +107,7 @@ public class ServiceTaskWorker : BackgroundService
                 , topicName
             );
 
-            var serviceInstance = serviceTaskWorkFactory.GetServiceInstance(
+            var serviceInstance = workServiceFactory.GetServiceInstance(
                 serviceTaskTopicName: sampleServiceTaskTopicName.GetEnumMemberAttributeValue()
             );
 

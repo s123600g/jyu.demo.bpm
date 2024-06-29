@@ -2,8 +2,6 @@ namespace jyu.demo.SampleServiceTaskWorker;
 
 using System.Reflection;
 using BpmDomain;
-using BpmDomain.SampleServiceTask;
-using BpmDomain.SampleServiceTask.ServiceTaskAttribute;
 using BPMN.Camunda.Models;
 using NLog.Extensions.Logging;
 using Services;

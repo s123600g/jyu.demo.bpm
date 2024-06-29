@@ -1,7 +1,7 @@
 ﻿using System.Reflection;
 using jyu.demo.BpmDomain;
-using jyu.demo.BpmDomain.SampleServiceTask;
-using jyu.demo.BpmDomain.SampleServiceTask.ServiceTaskAttribute;
+using jyu.demo.BpmDomain.Works.SampleServiceTask;
+using jyu.demo.BpmDomain.Works.SampleServiceTask.Attributes;
 using jyu.demo.BPMN.Camunda.Services;
 using jyu.demo.SampleServiceTaskWorker.Services;
 
@@ -17,7 +17,7 @@ public static class BackendServiceCollectionExtension
 
         #region 對應Topic Service注入
 
-        var type = typeof(IServiceTaskWork);
+        var type = typeof(IWorkBase);
 
         IEnumerable<Type> serviceTypes = type.Assembly.GetTypes()
             .Where(item =>
@@ -36,7 +36,7 @@ public static class BackendServiceCollectionExtension
             {
                 services.Add(
                     item: new ServiceDescriptor(
-                        serviceType: typeof(IServiceTaskWork)
+                        serviceType: typeof(IWorkBase)
                         , implementationType: item
                         , lifetime: ServiceLifetime.Singleton
                     )
@@ -47,7 +47,7 @@ public static class BackendServiceCollectionExtension
         #endregion
 
         // 對應Topic Service Factory注入
-        services.AddSingleton<IServiceTaskWorkFactory, SampleServiceTaskFactory>();
+        services.AddSingleton<IWorkServiceFactory, SampleWorkServiceTaskFactory>();
 
         return services;
     }
