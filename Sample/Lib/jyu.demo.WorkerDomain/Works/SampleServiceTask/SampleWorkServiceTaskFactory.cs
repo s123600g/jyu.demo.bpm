@@ -1,6 +1,7 @@
 using System.Reflection;
 using jyu.demo.Common.Extension;
 using jyu.demo.WorkerDomain.Works.SampleServiceTask.Attributes;
+using jyu.demo.WorkerDomain.Works.SampleServiceTask.Enum;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace jyu.demo.WorkerDomain.Works.SampleServiceTask;

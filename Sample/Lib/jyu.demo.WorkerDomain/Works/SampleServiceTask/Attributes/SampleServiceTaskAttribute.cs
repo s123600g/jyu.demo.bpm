@@ -1,3 +1,5 @@
+using jyu.demo.WorkerDomain.Works.SampleServiceTask.Enum;
+
 namespace jyu.demo.WorkerDomain.Works.SampleServiceTask.Attributes;
 
 [AttributeUsage(AttributeTargets.Class)]

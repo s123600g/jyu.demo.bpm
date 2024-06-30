@@ -3,6 +3,7 @@ using jyu.demo.Camunda.Services;
 using jyu.demo.Common.Extension;
 using jyu.demo.WorkerDomain.Models;
 using jyu.demo.WorkerDomain.Works.SampleServiceTask.Attributes;
+using jyu.demo.WorkerDomain.Works.SampleServiceTask.Enum;
 
 namespace jyu.demo.WorkerDomain.Works.SampleServiceTask.ServiceTask2;
 
