@@ -1,9 +1,9 @@
-namespace jyu.demo.SampleServiceTaskWorker;
-
-using System.Reflection;
-using WorkerDomain;
-using Camunda.Models;
+using jyu.demo.Camunda.Models;
+using jyu.demo.SampleDb.Dal;
+using Microsoft.EntityFrameworkCore;
 using NLog.Extensions.Logging;
+
+namespace jyu.demo.ReviewProcessFlowWorker;
 
 public class Program
 {
@@ -19,10 +19,26 @@ public class Program
         );
         log.AddNLog(nlogConfig);
 
+        services.AddDbContext<SampleDbContext>(opt =>
+        {
+            var dbConnStr = config.GetConnectionString(name: "DefaultConnection");
+
+            if (
+                string.IsNullOrEmpty(dbConnStr)
+            )
+            {
+                throw new ArgumentNullException(nameof(dbConnStr));
+            }
+
+            opt.UseSqlite(
+                connectionString: dbConnStr
+            );
+        });
+
         services.Configure<CamundaConfigOptions>(
             config.GetSection("CamundaSettings")
         );
-        
+
         services.Configure<ProcessDefinitionOptions>(
             config.GetSection("ProcessDefinitions")
         );
@@ -30,9 +46,9 @@ public class Program
         services.AddHttpClient();
 
         services.AddWorkerRelatedServices();
-        
+
         // Work Instance注入
-        services.AddHostedService<ServiceTaskWorker>();
+        services.AddHostedService<ReviewProcessFlowWorker>();
 
         var host = builder.Build();
         host.Run();

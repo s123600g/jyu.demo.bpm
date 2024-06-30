@@ -1,25 +1,25 @@
 using jyu.demo.Camunda.Enums;
 using jyu.demo.Camunda.Models;
-using jyu.demo.WorkerDomain;
 using jyu.demo.Camunda.Models.CamundaEngineClient;
 using jyu.demo.Camunda.Services;
 using jyu.demo.Common.Extension;
-using jyu.demo.WorkerDomain.Works.SampleServiceTask.Enums;
-using jyu.demo.WorkerDomain.Works.SampleServiceTask.Interface;
-using jyu.demo.WorkerDomain.Works.SampleServiceTask.Models;
+using jyu.demo.WorkerDomain;
+using jyu.demo.WorkerDomain.Works.ReviewProcessFlow.Enums;
+using jyu.demo.WorkerDomain.Works.ReviewProcessFlow.Interface;
+using jyu.demo.WorkerDomain.Works.ReviewProcessFlow.Models;
 using Microsoft.Extensions.Options;
 
-namespace jyu.demo.SampleServiceTaskWorker;
+namespace jyu.demo.ReviewProcessFlowWorker;
 
-public class ServiceTaskWorker : BackgroundService
+public class ReviewProcessFlowWorker : BackgroundService
 {
-    private readonly ILogger<ServiceTaskWorker> _log;
+    private readonly ILogger<ReviewProcessFlowWorker> _log;
     private readonly IServiceProvider _serviceProvider;
 
     private readonly ProcessDefinitionOptions _processDefinitionOptions;
 
-    public ServiceTaskWorker(
-        ILogger<ServiceTaskWorker> logger
+    public ReviewProcessFlowWorker(
+        ILogger<ReviewProcessFlowWorker> logger
         , IServiceProvider serviceProvider
         , IOptions<ProcessDefinitionOptions> options
     )
@@ -46,8 +46,9 @@ public class ServiceTaskWorker : BackgroundService
         )
         {
             ICamundaEngineClient camundaEngineClient = scope.ServiceProvider.GetRequiredService<ICamundaEngineClient>();
+
             var workServiceFactory =
-                scope.ServiceProvider.GetRequiredService<IWorkServiceFactory<ISampleServiceTaskWorkBase>>();
+                scope.ServiceProvider.GetRequiredService<IWorkServiceFactory<IReviewProcessFlowWorkBase>>();
 
             while (
                 !stoppingToken.IsCancellationRequested
@@ -65,12 +66,12 @@ public class ServiceTaskWorker : BackgroundService
 
                 await Task.WhenAll(
                     ExectueServiceTaskWork(
-                        argSampleServiceTaskTopicName: SampleServiceTaskTopicName.ServiceTask1
+                        argProcessFlowTopicName: ReviewProcessFlowTopicName.AssignApprovalCheckpoint
                         , argServiceTasks: externalTasks
                         , argWorkServiceFactory: workServiceFactory
                     )
                     , ExectueServiceTaskWork(
-                        argSampleServiceTaskTopicName: SampleServiceTaskTopicName.ServiceTask2
+                        argProcessFlowTopicName: ReviewProcessFlowTopicName.ProcessApprovalResults
                         , argServiceTasks: externalTasks
                         , argWorkServiceFactory: workServiceFactory
                     )
@@ -81,18 +82,13 @@ public class ServiceTaskWorker : BackgroundService
         }
     }
 
-    /// <summary>
-    /// 執行未被指派運行External Task作業
-    /// </summary>
-    /// <param name="argSampleServiceTaskTopicName"></param>
-    /// <param name="argServiceTasks"></param>
     private async Task ExectueServiceTaskWork(
-        SampleServiceTaskTopicName argSampleServiceTaskTopicName
+        ReviewProcessFlowTopicName argProcessFlowTopicName
         , List<QueryExternalTaskRs> argServiceTasks
-        , IWorkServiceFactory<ISampleServiceTaskWorkBase> argWorkServiceFactory
+        , IWorkServiceFactory<IReviewProcessFlowWorkBase> argWorkServiceFactory
     )
     {
-        string topicName = argSampleServiceTaskTopicName.GetEnumMemberAttributeValue();
+        string topicName = argProcessFlowTopicName.GetEnumMemberAttributeValue();
 
         List<QueryExternalTaskRs> waitExecuteServiceTasks = argServiceTasks.Where(item =>
             item.TopicName == topicName
@@ -122,13 +118,14 @@ public class ServiceTaskWorker : BackgroundService
             );
 
             var serviceInstance = argWorkServiceFactory.GetServiceInstance(
-                serviceTaskTopicName: argSampleServiceTaskTopicName.GetEnumMemberAttributeValue()
+                serviceTaskTopicName: topicName
             );
 
             await serviceInstance.ExecuteAsync(
-                argSampleServiceTaskWorkData: new SampleServiceTaskWorkData
+                argReviewProcessFlowWorkData: new ReviewProcessFlowWorkData
                 {
-                    ExternalTaskId = item.ExternalTaskId
+                    ExternalTaskId = item.ExternalTaskId,
+                    ProcessInstanceId = item.ProcessInstanceId
                 }
             );
         }

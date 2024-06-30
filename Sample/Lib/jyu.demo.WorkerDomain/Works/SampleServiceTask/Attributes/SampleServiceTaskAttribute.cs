@@ -1,4 +1,4 @@
-using jyu.demo.WorkerDomain.Works.SampleServiceTask.Enum;
+using jyu.demo.WorkerDomain.Works.SampleServiceTask.Enums;
 
 namespace jyu.demo.WorkerDomain.Works.SampleServiceTask.Attributes;
 

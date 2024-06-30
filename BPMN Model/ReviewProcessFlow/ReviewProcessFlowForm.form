@@ -1,0 +1,42 @@
+{
+  "components": [
+    {
+      "label": "ProductName",
+      "type": "textfield",
+      "layout": {
+        "row": "Row_1tg2thz",
+        "columns": null
+      },
+      "id": "Field_0d5l691",
+      "key": "ProductName",
+      "description": "商品名稱",
+      "disabled": false,
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "label": "Price",
+      "type": "number",
+      "layout": {
+        "row": "Row_1jnvyh6",
+        "columns": null
+      },
+      "id": "Field_116ei55",
+      "key": "Price",
+      "description": "售價",
+      "validate": {
+        "required": true
+      }
+    }
+  ],
+  "type": "default",
+  "id": "ReviewProcessFlowForm",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.22.0"
+  },
+  "executionPlatform": "Camunda Platform",
+  "executionPlatformVersion": "7.21.0",
+  "schemaVersion": 16
+}

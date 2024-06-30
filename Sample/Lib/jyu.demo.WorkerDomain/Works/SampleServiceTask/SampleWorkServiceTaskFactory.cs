@@ -1,12 +1,13 @@
 using System.Reflection;
 using jyu.demo.Common.Extension;
 using jyu.demo.WorkerDomain.Works.SampleServiceTask.Attributes;
-using jyu.demo.WorkerDomain.Works.SampleServiceTask.Enum;
+using jyu.demo.WorkerDomain.Works.SampleServiceTask.Enums;
+using jyu.demo.WorkerDomain.Works.SampleServiceTask.Interface;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace jyu.demo.WorkerDomain.Works.SampleServiceTask;
 
-public class SampleWorkServiceTaskFactory : IWorkServiceFactory
+public class SampleWorkServiceTaskFactory : IWorkServiceFactory<ISampleServiceTaskWorkBase>
 {
     private readonly IServiceProvider _serviceProvider;
 
@@ -20,13 +21,13 @@ public class SampleWorkServiceTaskFactory : IWorkServiceFactory
                            );
     }
 
-    public IWorkBase GetServiceInstance(
+    public ISampleServiceTaskWorkBase GetServiceInstance(
         string serviceTaskTopicName
     )
     {
         SampleServiceTaskTopicName topicName = serviceTaskTopicName.ConvertStrToEnum<SampleServiceTaskTopicName>();
 
-        IEnumerable<IWorkBase> services = _serviceProvider.GetServices<IWorkBase>();
+        IEnumerable<ISampleServiceTaskWorkBase> services = _serviceProvider.GetServices<ISampleServiceTaskWorkBase>();
 
         var serviceInstance = services.FirstOrDefault(item =>
             (

@@ -32,8 +32,11 @@ public interface ICamundaEngineClient
     /// <summary>
     /// 查詢當前需處理External Task清單
     /// </summary>
+    /// <param name="argQueryExternalTaskRq"></param>
     /// <returns></returns>
-    public Task<List<QueryExternalTaskRs>> QueryExternalTaskAsync();
+    public Task<List<QueryExternalTaskRs>> QueryExternalTaskAsync(
+        QueryExternalTaskRq argQueryExternalTaskRq
+    );
 
     /// <summary>
     /// 發送Lock External Task 請求
@@ -55,5 +58,16 @@ public interface ICamundaEngineClient
     public Task ComplateExternalTaskAsync(
         string argExternalTaskId
         , ComplateExternalTaskRq argComplateExternalTaskRq
+    );
+
+
+    /// <summary>
+    /// 查詢Process Instance攜帶變數
+    /// </summary>
+    /// <param name="argProcessInstanceTaskId"></param>
+    /// <typeparam name="T"></typeparam>
+    /// <returns></returns>
+    public Task<T> QueryProcessInstanceVariable<T>(
+        string argProcessInstanceTaskId
     );
 }

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="SampleDb" database="LogicalDesign" id="LogicalDesign-24f6" >
+	<schema name="Product" catalogname="SampleDb" >
+		<table name="Product_Application_History" >
+			<comment><![CDATA[商品申請歷程]]></comment>
+			<column name="Id" type="INT" jt="4" mandatory="y" >
+				<comment><![CDATA[編號]]></comment>
+			</column>
+			<column name="Product_Name" type="NVARCHAR" length="255" jt="12" mandatory="y" >
+				<comment><![CDATA[商品名稱]]></comment>
+			</column>
+			<column name="Price" type="NUMERIC" length="10" decimal="4" jt="2" mandatory="y" >
+				<comment><![CDATA[售價]]></comment>
+			</column>
+			<column name="Status" type="NUMERIC" length="2" jt="2" >
+				<comment><![CDATA[審核狀態]]></comment>
+			</column>
+			<column name="Reviewer" type="NVARCHAR" length="50" jt="12" >
+				<comment><![CDATA[審核者]]></comment>
+			</column>
+			<index name="pk_Product_Application_History" unique="PRIMARY_KEY" >
+				<column name="Id" />
+			</index>
+		</table>
+	</schema>
+	<layout name="Default Layout" id="Layout-2495" show_column_type="y" show_relation="columns" >
+		<entity schema="SampleDb.Product" name="Product_Application_History" color="C1D8EE" x="48" y="48" />
+	</layout>
+</project>

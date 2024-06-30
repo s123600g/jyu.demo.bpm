@@ -3,6 +3,7 @@ using System.Text;
 using jyu.demo.Camunda.Exceptions;
 using jyu.demo.Camunda.Models;
 using jyu.demo.Camunda.Models.CamundaEngineClient;
+using jyu.demo.Common.Extension;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Options;
 
@@ -16,16 +17,16 @@ public class CamundaEngineClient : ICamundaEngineClient
     private readonly string _camundaEngineBassAddress;
 
     public CamundaEngineClient(
-        IHttpClientFactory argHttpClientFactory
-        , IOptions<CamundaConfigOptions> argCamundaConfigOptions
+        IHttpClientFactory httpClientFactory
+        , IOptions<CamundaConfigOptions> options
     )
     {
-        _httpClientFactory = argHttpClientFactory
+        _httpClientFactory = httpClientFactory
                              ?? throw new ArgumentNullException(
-                                 nameof(argHttpClientFactory)
+                                 nameof(httpClientFactory)
                              );
 
-        _camundaConfigOptions = argCamundaConfigOptions.Value;
+        _camundaConfigOptions = options.Value;
 
         _camundaEngineBassAddress = GenCamundaEngineRootUrlPath();
     }
@@ -105,12 +106,21 @@ public class CamundaEngineClient : ICamundaEngineClient
         return result;
     }
 
-    public async Task<List<QueryExternalTaskRs>> QueryExternalTaskAsync()
+    public async Task<List<QueryExternalTaskRs>> QueryExternalTaskAsync(
+        QueryExternalTaskRq argQueryExternalTaskRq
+    )
     {
         string path = $"external-task";
 
+        Dictionary<string, string> queryParams = new Dictionary<string, string>
+        {
+            ["notLocked"] = argQueryExternalTaskRq.NotLocked.GetEnumMemberAttributeValue(),
+            ["processDefinitionId"] = argQueryExternalTaskRq.ProcessDefinitionId,
+        };
+
         HttpResponseMessage httpRs = await HttpGetAsync(
-            argPath: path
+            argPath: path,
+            argQueryParams: queryParams
         );
 
         List<QueryExternalTaskRs> result = await httpRs.Content.ReadFromJsonAsync<List<QueryExternalTaskRs>>()
@@ -157,6 +167,21 @@ public class CamundaEngineClient : ICamundaEngineClient
         {
             throw new CamundaApiFailException();
         }
+    }
+
+    public async Task<T> QueryProcessInstanceVariable<T>(
+        string argProcessInstanceTaskId
+    )
+    {
+        string path = $"process-instance/{argProcessInstanceTaskId}/variables";
+
+        HttpResponseMessage httpRs = await HttpGetAsync(
+            argPath: path
+        );
+
+        T result = await httpRs.Content.ReadFromJsonAsync<T>();
+
+        return result;
     }
 
     #region 內部處理邏輯

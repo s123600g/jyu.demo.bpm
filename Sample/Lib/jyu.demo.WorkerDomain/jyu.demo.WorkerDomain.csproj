@@ -13,10 +13,12 @@
     <ItemGroup>
       <ProjectReference Include="..\jyu.demo.Camunda\jyu.demo.Camunda.csproj" />
       <ProjectReference Include="..\jyu.demo.Common\jyu.demo.Common.csproj" />
+      <ProjectReference Include="..\jyu.demo.SampleDb\jyu.demo.SampleDb.csproj" />
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Works\" />
+      <Folder Include="Works\ReviewProcessFlow\Services\" />
+      <Folder Include="Works\SampleServiceTask\Services\" />
     </ItemGroup>
 
 </Project>

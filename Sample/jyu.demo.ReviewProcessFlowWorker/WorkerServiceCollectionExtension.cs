@@ -1,11 +1,11 @@
 ﻿using System.Reflection;
-using jyu.demo.WorkerDomain;
-using jyu.demo.WorkerDomain.Works.SampleServiceTask;
-using jyu.demo.WorkerDomain.Works.SampleServiceTask.Attributes;
 using jyu.demo.Camunda.Services;
-using jyu.demo.WorkerDomain.Works.SampleServiceTask.Interface;
+using jyu.demo.WorkerDomain;
+using jyu.demo.WorkerDomain.Works.ReviewProcessFlow;
+using jyu.demo.WorkerDomain.Works.ReviewProcessFlow.Attributes;
+using jyu.demo.WorkerDomain.Works.ReviewProcessFlow.Interface;
 
-namespace jyu.demo.SampleServiceTaskWorker;
+namespace jyu.demo.ReviewProcessFlowWorker;
 
 public static class WorkerServiceCollectionExtension
 {
@@ -17,7 +17,7 @@ public static class WorkerServiceCollectionExtension
 
         #region 對應Topic Service注入
 
-        var type = typeof(ISampleServiceTaskWorkBase);
+        var type = typeof(IReviewProcessFlowWorkBase);
 
         IEnumerable<Type> serviceTypes = type.Assembly.GetTypes()
             .Where(item =>
@@ -28,7 +28,7 @@ public static class WorkerServiceCollectionExtension
             var item in serviceTypes
         )
         {
-            var attribute = item.GetCustomAttribute<SampleServiceTaskAttribute>();
+            var attribute = item.GetCustomAttribute<ReviewProcessFlowAttribute>();
 
             if (
                 attribute != null
@@ -36,7 +36,7 @@ public static class WorkerServiceCollectionExtension
             {
                 services.Add(
                     item: new ServiceDescriptor(
-                        serviceType: typeof(ISampleServiceTaskWorkBase)
+                        serviceType: typeof(IReviewProcessFlowWorkBase)
                         , implementationType: item
                         , lifetime: ServiceLifetime.Scoped
                     )
@@ -47,7 +47,7 @@ public static class WorkerServiceCollectionExtension
         #endregion
 
         // 對應Topic Service Factory注入
-        services.AddScoped<IWorkServiceFactory<ISampleServiceTaskWorkBase>, SampleWorkServiceTaskFactory>();
+        services.AddScoped<IWorkServiceFactory<IReviewProcessFlowWorkBase>, ReviewProcessFlowFactory>();
 
         return services;
     }

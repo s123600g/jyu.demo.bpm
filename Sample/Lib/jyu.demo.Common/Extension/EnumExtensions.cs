@@ -6,7 +6,7 @@ using System.Runtime.Serialization;
 public static class EnumExtensions
 {
     /// <summary>
-    /// Enum 擴充方法，取得 EnumMemberAttribute 的資料值
+    /// Enums 擴充方法，取得 EnumMemberAttribute 的資料值
     /// </summary>
     /// <param name="enumEntity"></param>
     /// <returns></returns>
