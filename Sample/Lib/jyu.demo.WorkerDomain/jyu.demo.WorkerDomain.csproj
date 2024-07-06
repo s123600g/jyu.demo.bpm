@@ -18,7 +18,6 @@
 
     <ItemGroup>
       <Folder Include="Works\ReviewProcessFlow\Services\" />
-      <Folder Include="Works\SampleServiceTask\Services\" />
     </ItemGroup>
 
 </Project>
