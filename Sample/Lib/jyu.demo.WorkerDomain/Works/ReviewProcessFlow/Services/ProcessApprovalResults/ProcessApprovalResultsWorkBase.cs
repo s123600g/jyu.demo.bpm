@@ -41,12 +41,12 @@ public class ProcessApprovalResultsWorkBase : IReviewProcessFlowWorkBase
     }
 
     public async Task ExecuteAsync(
-        ReviewProcessFlowWorkData argReviewProcessFlowWorkData
+        ReviewProcessFlowWorkData reviewProcessFlowWorkData
     )
     {
         // 查詢當前ProcessInstance 包含Variable
         ProductReviewVariable variable = await _camundaEngineClient.QueryProcessInstanceVariable<ProductReviewVariable>(
-            argProcessInstanceTaskId: argReviewProcessFlowWorkData.ProcessInstanceId
+            processInstanceTaskId: reviewProcessFlowWorkData.ProcessInstanceId
         );
 
         #region 主要處理區塊
@@ -70,7 +70,7 @@ public class ProcessApprovalResultsWorkBase : IReviewProcessFlowWorkBase
 
         // 執行 Lock external task
         await _camundaEngineClient.LockExternalTaskAsync(
-            argExternalTaskId: argReviewProcessFlowWorkData.ExternalTaskId
+            externalTaskId: reviewProcessFlowWorkData.ExternalTaskId
             , argLockExternalTaskRq: new LockExternalTaskRq
             {
                 WorkerId = _workerId,
@@ -80,8 +80,8 @@ public class ProcessApprovalResultsWorkBase : IReviewProcessFlowWorkBase
 
         // Complate external task
         await _camundaEngineClient.ComplateExternalTaskAsync(
-            argExternalTaskId: argReviewProcessFlowWorkData.ExternalTaskId
-            , argComplateExternalTaskRq: new ComplateExternalTaskRq
+            externalTaskId: reviewProcessFlowWorkData.ExternalTaskId
+            , complateExternalTaskRq: new ComplateExternalTaskRq
             {
                 WorkerId = _workerId,
             }

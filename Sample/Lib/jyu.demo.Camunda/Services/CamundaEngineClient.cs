@@ -34,19 +34,19 @@ public class CamundaEngineClient : ICamundaEngineClient
     /// <summary>
     /// 建置新 ProcessInstance
     /// </summary>
-    /// <param name="argProcessDefinitionKey"></param>
-    /// <param name="argStartNewProcessInstanceRq"></param>
+    /// <param name="processDefinitionKey"></param>
+    /// <param name="startNewProcessInstanceRq"></param>
     /// <returns></returns>
     public async Task<string?> StartNewProcessInstanceAsync(
-        string argProcessDefinitionKey
-        , StartNewProcessInstanceRq argStartNewProcessInstanceRq
+        string processDefinitionKey
+        , StartNewProcessInstanceRq startNewProcessInstanceRq
     )
     {
-        string path = $"process-definition/key/{argProcessDefinitionKey}/start";
+        string path = $"process-definition/key/{processDefinitionKey}/start";
 
         HttpResponseMessage httpRs = await HttpPostAsJsonAsync(
             argPath: path
-            , argRequestBody: argStartNewProcessInstanceRq
+            , argRequestBody: startNewProcessInstanceRq
         );
 
         StartProcessInstanceRs? resContent = await httpRs.Content.ReadFromJsonAsync<StartProcessInstanceRs>();
@@ -57,14 +57,14 @@ public class CamundaEngineClient : ICamundaEngineClient
     }
 
     public async Task<List<QueryProcessCurrentTaskInfoRs>> QueryProcessCurrentTaskInfoAsync(
-        string argProcessInstanceId
+        string processInstanceId
     )
     {
         string path = "task";
 
         Dictionary<string, string> queryParams = new Dictionary<string, string>
         {
-            ["processInstanceId"] = argProcessInstanceId
+            ["processInstanceId"] = processInstanceId
         };
 
         HttpResponseMessage httpRs = await HttpGetAsync(
@@ -80,15 +80,15 @@ public class CamundaEngineClient : ICamundaEngineClient
     }
 
     public async Task<CompleteTaskRs> CompleteTaskAsync(
-        string argProcessInstanceTaskId
-        , CompleteTaskRq argCompleteTaskRq
+        string processInstanceTaskId
+        , CompleteTaskRq completeTaskRq
     )
     {
-        string path = $"task/{argProcessInstanceTaskId}/complete";
+        string path = $"task/{processInstanceTaskId}/complete";
 
         HttpResponseMessage httpRs = await HttpPostAsJsonAsync(
             argPath: path
-            , argRequestBody: argCompleteTaskRq
+            , argRequestBody: completeTaskRq
         );
 
         var resContent =
@@ -107,15 +107,15 @@ public class CamundaEngineClient : ICamundaEngineClient
     }
 
     public async Task<List<QueryExternalTaskRs>> QueryExternalTaskAsync(
-        QueryExternalTaskRq argQueryExternalTaskRq
+        QueryExternalTaskRq queryExternalTaskRq
     )
     {
         string path = $"external-task";
 
         Dictionary<string, string> queryParams = new Dictionary<string, string>
         {
-            ["notLocked"] = argQueryExternalTaskRq.NotLocked.GetEnumMemberAttributeValue(),
-            ["processDefinitionId"] = argQueryExternalTaskRq.ProcessDefinitionId,
+            ["notLocked"] = queryExternalTaskRq.NotLocked.GetEnumMemberAttributeValue(),
+            ["processDefinitionId"] = queryExternalTaskRq.ProcessDefinitionId,
         };
 
         HttpResponseMessage httpRs = await HttpGetAsync(
@@ -130,11 +130,11 @@ public class CamundaEngineClient : ICamundaEngineClient
     }
 
     public async Task LockExternalTaskAsync(
-        string argExternalTaskId
+        string externalTaskId
         , LockExternalTaskRq argLockExternalTaskRq
     )
     {
-        string path = $"external-task/{argExternalTaskId}/lock";
+        string path = $"external-task/{externalTaskId}/lock";
 
         HttpResponseMessage httpRs = await HttpPostAsJsonAsync(
             argPath: path
@@ -150,15 +150,15 @@ public class CamundaEngineClient : ICamundaEngineClient
     }
 
     public async Task ComplateExternalTaskAsync(
-        string argExternalTaskId
-        , ComplateExternalTaskRq argComplateExternalTaskRq
+        string externalTaskId
+        , ComplateExternalTaskRq complateExternalTaskRq
     )
     {
-        string path = $"external-task/{argExternalTaskId}/complete";
+        string path = $"external-task/{externalTaskId}/complete";
 
         HttpResponseMessage httpRs = await HttpPostAsJsonAsync(
             argPath: path
-            , argRequestBody: argComplateExternalTaskRq
+            , argRequestBody: complateExternalTaskRq
         );
 
         if (
@@ -170,10 +170,10 @@ public class CamundaEngineClient : ICamundaEngineClient
     }
 
     public async Task<T> QueryProcessInstanceVariable<T>(
-        string argProcessInstanceTaskId
+        string processInstanceTaskId
     )
     {
-        string path = $"process-instance/{argProcessInstanceTaskId}/variables";
+        string path = $"process-instance/{processInstanceTaskId}/variables";
 
         HttpResponseMessage httpRs = await HttpGetAsync(
             argPath: path
@@ -182,6 +182,30 @@ public class CamundaEngineClient : ICamundaEngineClient
         T result = await httpRs.Content.ReadFromJsonAsync<T>();
 
         return result;
+    }
+
+
+    public async Task SetTaskAssignee(
+        string processInstanceTaskId
+        , string assignee
+    )
+    {
+        string path = $"task/{processInstanceTaskId}/assignee";
+
+        HttpResponseMessage httpRs = await HttpPostAsJsonAsync(
+            argPath: path
+            , argRequestBody: new
+            {
+                UserId = assignee
+            }
+        );
+
+        if (
+            !httpRs.IsSuccessStatusCode
+        )
+        {
+            throw new CamundaApiFailException();
+        }
     }
 
     #region 內部處理邏輯

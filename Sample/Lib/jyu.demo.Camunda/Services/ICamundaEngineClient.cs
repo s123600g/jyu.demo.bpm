@@ -5,69 +5,79 @@ namespace jyu.demo.Camunda.Services;
 public interface ICamundaEngineClient
 {
     public Task<string?> StartNewProcessInstanceAsync(
-        string argProcessDefinitionKey
-        , StartNewProcessInstanceRq argStartNewProcessInstanceRq
+        string processDefinitionKey
+        , StartNewProcessInstanceRq startNewProcessInstanceRq
     );
 
     /// <summary>
     /// 查詢當前ProcessInstance Task資訊
     /// </summary>
-    /// <param name="argProcessInstanceId"></param>
+    /// <param name="processInstanceId"></param>
     /// <returns></returns>
     public Task<List<QueryProcessCurrentTaskInfoRs>> QueryProcessCurrentTaskInfoAsync(
-        string argProcessInstanceId
+        string processInstanceId
     );
 
     /// <summary>
     /// 發送Complate Task請求
     /// </summary>
-    /// <param name="argProcessInstanceTaskId"></param>
-    /// <param name="argCompleteTaskRq"></param>
+    /// <param name="processInstanceTaskId"></param>
+    /// <param name="completeTaskRq"></param>
     /// <returns></returns>
     public Task<CompleteTaskRs> CompleteTaskAsync(
-        string argProcessInstanceTaskId
-        , CompleteTaskRq argCompleteTaskRq
+        string processInstanceTaskId
+        , CompleteTaskRq completeTaskRq
     );
 
     /// <summary>
     /// 查詢當前需處理External Task清單
     /// </summary>
-    /// <param name="argQueryExternalTaskRq"></param>
+    /// <param name="queryExternalTaskRq"></param>
     /// <returns></returns>
     public Task<List<QueryExternalTaskRs>> QueryExternalTaskAsync(
-        QueryExternalTaskRq argQueryExternalTaskRq
+        QueryExternalTaskRq queryExternalTaskRq
     );
 
     /// <summary>
     /// 發送Lock External Task 請求
     /// </summary>
-    /// <param name="argExternalTaskId"></param>
+    /// <param name="externalTaskId"></param>
     /// <param name="argLockExternalTaskRq"></param>
     /// <returns></returns>
     public Task LockExternalTaskAsync(
-        string argExternalTaskId
+        string externalTaskId
         , LockExternalTaskRq argLockExternalTaskRq
     );
 
     /// <summary>
     /// 發送Complete External Task
     /// </summary>
-    /// <param name="argExternalTaskId"></param>
-    /// <param name="argComplateExternalTaskRq"></param>
+    /// <param name="externalTaskId"></param>
+    /// <param name="complateExternalTaskRq"></param>
     /// <returns></returns>
     public Task ComplateExternalTaskAsync(
-        string argExternalTaskId
-        , ComplateExternalTaskRq argComplateExternalTaskRq
+        string externalTaskId
+        , ComplateExternalTaskRq complateExternalTaskRq
     );
 
 
     /// <summary>
     /// 查詢Process Instance攜帶變數
     /// </summary>
-    /// <param name="argProcessInstanceTaskId"></param>
+    /// <param name="processInstanceTaskId"></param>
     /// <typeparam name="T"></typeparam>
     /// <returns></returns>
     public Task<T> QueryProcessInstanceVariable<T>(
-        string argProcessInstanceTaskId
+        string processInstanceTaskId
+    );
+
+    /// <summary>
+    /// 指派Task Assignee
+    /// </summary>
+    /// <param name="processInstanceTaskId"></param>
+    /// <param name="assignee"></param>
+    public Task SetTaskAssignee(
+        string processInstanceTaskId
+        , string assignee
     );
 }

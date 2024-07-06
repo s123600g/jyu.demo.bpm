@@ -7,9 +7,9 @@ public interface IReviewProcessFlowWorkBase
     /// <summary>
     /// 執行Work內容
     /// </summary>
-    /// <param name="argReviewProcessFlowWorkData"></param>
+    /// <param name="reviewProcessFlowWorkData"></param>
     /// <returns></returns>
     Task ExecuteAsync(
-        ReviewProcessFlowWorkData argReviewProcessFlowWorkData
+        ReviewProcessFlowWorkData reviewProcessFlowWorkData
     );
 }

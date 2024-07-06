@@ -41,17 +41,17 @@ public class AssignApprovalCheckpointWorkBase : IReviewProcessFlowWorkBase
     }
 
     public async Task ExecuteAsync(
-        ReviewProcessFlowWorkData argReviewProcessFlowWorkData
+        ReviewProcessFlowWorkData reviewProcessFlowWorkData
     )
     {
         // 查詢當前ProcessInstance 包含Variable
         ProductReviewVariable variable = await _camundaEngineClient.QueryProcessInstanceVariable<ProductReviewVariable>(
-            argProcessInstanceTaskId: argReviewProcessFlowWorkData.ProcessInstanceId
+            processInstanceTaskId: reviewProcessFlowWorkData.ProcessInstanceId
         );
 
         // 執行 Lock external task
         await _camundaEngineClient.LockExternalTaskAsync(
-            argExternalTaskId: argReviewProcessFlowWorkData.ExternalTaskId
+            externalTaskId: reviewProcessFlowWorkData.ExternalTaskId
             , argLockExternalTaskRq: new LockExternalTaskRq
             {
                 WorkerId = _workerId,
@@ -83,15 +83,15 @@ public class AssignApprovalCheckpointWorkBase : IReviewProcessFlowWorkBase
             Price = variable.Price.Value,
             Status = (int)ReviewStatusType.PendingReview,
             Reviewer = reviewer,
-            ProcessInstanceId = argReviewProcessFlowWorkData.ProcessInstanceId
+            ProcessInstanceId = reviewProcessFlowWorkData.ProcessInstanceId
         });
 
         #endregion
 
         // Complate external task
         await _camundaEngineClient.ComplateExternalTaskAsync(
-            argExternalTaskId: argReviewProcessFlowWorkData.ExternalTaskId
-            , argComplateExternalTaskRq: new ComplateExternalTaskRq
+            externalTaskId: reviewProcessFlowWorkData.ExternalTaskId
+            , complateExternalTaskRq: new ComplateExternalTaskRq
             {
                 WorkerId = _workerId,
                 Variables = new AssignApprovalCheckpointWorkCompleteVariable
@@ -107,6 +107,19 @@ public class AssignApprovalCheckpointWorkBase : IReviewProcessFlowWorkBase
                     },
                 }
             }
+        );
+
+        // 取得當前Process Instance User Task Id
+        var userTaskIds = await _camundaEngineClient.QueryProcessCurrentTaskInfoAsync(
+            processInstanceId: reviewProcessFlowWorkData.ProcessInstanceId
+        );
+
+        var userTaskId = userTaskIds.FirstOrDefault()?.TaskId ?? throw new ArgumentNullException();
+
+        // 設定User Task Assignee
+        await _camundaEngineClient.SetTaskAssignee(
+            processInstanceTaskId: userTaskId
+            , assignee: $"Reviewer{reviewer}"
         );
 
         await _db.SaveChangesAsync();
