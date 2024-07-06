@@ -66,8 +66,6 @@ public class ProcessApprovalResultsWorkBase : IReviewProcessFlowWorkBase
             data.Status = (int)ReviewStatusType.Reject;
         }
 
-        data.ProcessInstanceId = null;
-
         #endregion
 
         // 執行 Lock external task
