@@ -15,7 +15,7 @@
       <bpmn:outgoing>Flow_1fb8z1f</bpmn:outgoing>
     </bpmn:exclusiveGateway>
     <bpmn:sequenceFlow id="Flow_1r9s4ds" sourceRef="Activity_AssignApprovalCheckpoint" targetRef="Gateway_Assign" />
-    <bpmn:userTask id="Activity_ReviewerA" name="審核者A">
+    <bpmn:userTask id="Activity_ReviewerA" name="審核者A" camunda:assignee="ReviewerA">
       <bpmn:incoming>Flow_1y3f8hv</bpmn:incoming>
       <bpmn:outgoing>Flow_0n4atig</bpmn:outgoing>
     </bpmn:userTask>
@@ -25,7 +25,7 @@
     <bpmn:sequenceFlow id="Flow_1fb8z1f" name="審核者為B人員" sourceRef="Gateway_Assign" targetRef="Activity_ReviewerB">
       <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${reviewer == 'B'}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
-    <bpmn:userTask id="Activity_ReviewerB" name="審核者B">
+    <bpmn:userTask id="Activity_ReviewerB" name="審核者B" camunda:assignee="ReviewerB">
       <bpmn:incoming>Flow_1fb8z1f</bpmn:incoming>
       <bpmn:outgoing>Flow_1mmzs1g</bpmn:outgoing>
     </bpmn:userTask>
