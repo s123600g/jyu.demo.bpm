@@ -1,0 +1,23 @@
+{
+  "components": [
+    {
+      "label": "IsApproval",
+      "type": "checkbox",
+      "layout": {
+        "row": "Row_19eczt1",
+        "columns": null
+      },
+      "id": "Field_11e2kxv",
+      "key": "IsApproval"
+    }
+  ],
+  "type": "default",
+  "id": "ReviewerForm",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.22.0"
+  },
+  "executionPlatform": "Camunda Platform",
+  "executionPlatformVersion": "7.21.0",
+  "schemaVersion": 16
+}

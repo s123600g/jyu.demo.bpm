@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" xmlns:color="http://www.omg.org/spec/BPMN/non-normative/color/1.0" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_15po9h6" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.22.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.21.0">
-  <bpmn:process id="ReviewProcessFlow" name="ReviewProcessFlow" isExecutable="true" camunda:versionTag="1.0" camunda:historyTimeToLive="45">
+  <bpmn:process id="ReviewProcessFlow" name="ReviewProcessFlow" isExecutable="true" camunda:versionTag="3.0" camunda:historyTimeToLive="45">
     <bpmn:startEvent id="StartEvent_1" name="Start Event" camunda:formRef="ReviewProcessFlowForm" camunda:formRefBinding="latest">
       <bpmn:outgoing>Flow_1ouxpn8</bpmn:outgoing>
     </bpmn:startEvent>
@@ -15,7 +15,7 @@
       <bpmn:outgoing>Flow_1fb8z1f</bpmn:outgoing>
     </bpmn:exclusiveGateway>
     <bpmn:sequenceFlow id="Flow_1r9s4ds" sourceRef="Activity_AssignApprovalCheckpoint" targetRef="Gateway_Assign" />
-    <bpmn:userTask id="Activity_ReviewerA" name="審核者A" camunda:assignee="ReviewerA">
+    <bpmn:userTask id="Activity_ReviewerA" name="審核者A" camunda:formRef="ReviewerForm" camunda:formRefBinding="latest" camunda:assignee="ReviewerA">
       <bpmn:incoming>Flow_1y3f8hv</bpmn:incoming>
       <bpmn:outgoing>Flow_0n4atig</bpmn:outgoing>
     </bpmn:userTask>
@@ -25,7 +25,7 @@
     <bpmn:sequenceFlow id="Flow_1fb8z1f" name="審核者為B人員" sourceRef="Gateway_Assign" targetRef="Activity_ReviewerB">
       <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${reviewer == 'B'}</bpmn:conditionExpression>
     </bpmn:sequenceFlow>
-    <bpmn:userTask id="Activity_ReviewerB" name="審核者B" camunda:assignee="ReviewerB">
+    <bpmn:userTask id="Activity_ReviewerB" name="審核者B" camunda:formRef="ReviewerForm" camunda:formRefBinding="latest" camunda:assignee="ReviewerB">
       <bpmn:incoming>Flow_1fb8z1f</bpmn:incoming>
       <bpmn:outgoing>Flow_1mmzs1g</bpmn:outgoing>
     </bpmn:userTask>
